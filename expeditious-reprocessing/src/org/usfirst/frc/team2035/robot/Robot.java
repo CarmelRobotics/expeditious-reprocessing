@@ -5,8 +5,10 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import org.usfirst.frc.team2035.robot.commands.ExampleCommand;
-import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
+
+import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
+
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -17,10 +19,16 @@ import org.usfirst.frc.team2035.robot.subsystems.ExampleSubsystem;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
+	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
+	private DriveTrain driver;
 
     Command autonomousCommand;
+    
+    public Robot()
+    {
+    	driver = new DriveTrain();
+    }
 
     /**
      * This function is run when the robot is first started up and should be
@@ -29,7 +37,7 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		oi = new OI();
         // instantiate the command used for the autonomous period
-        autonomousCommand = new ExampleCommand();
+        //autonomousCommand = new ExampleCommand();
     }
 	
 	public void disabledPeriodic() {
@@ -69,6 +77,9 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        driver.arcadeDrive();
+    	System.out.println("Loop is running");
+        Timer.delay(K_UPDATE_PERIOD);
     }
     
     /**
