@@ -1,12 +1,13 @@
 
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.IterativeRobot;import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -22,12 +23,19 @@ public class Robot extends IterativeRobot {
 	public static OI oi;
 	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
 	private DriveTrain driver;
+	private Autonomous autonomous;
+	private static Forklift forkliftSubsystem;
 
     Command autonomousCommand;
     
     public Robot()
     {
     	driver = new DriveTrain();
+    	autonomous = new Autonomous();
+    	
+    }
+    public static Forklift getForklift() {
+    	return forkliftSubsystem;
     }
 
     /**
@@ -35,7 +43,9 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
+		oi = new OI(); 
+		forkliftSubsystem = new Forklift();
+		
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
     }
