@@ -20,5 +20,10 @@ public class RobotMap {
     public static final int F_RIGHT_MOTOR_PWM = 2; // Front Right drive motor is wired to PWM out 2
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
     
+    /*
+     * DRIVETRAIN SUBSYSTEM CONSTANTS
+     */
+    public static final double AutonomousSpeed = 0.40; //Autonomous speed set to 40%
+    
     public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
 }
