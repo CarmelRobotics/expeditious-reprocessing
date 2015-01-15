@@ -6,7 +6,7 @@ import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import edu.wpi.first.wpilibj.command.Command;
 
 
-//why is command base underlined?
+
 public class LiftForklift extends Command{
 
 	private final Forklift forklift; 
