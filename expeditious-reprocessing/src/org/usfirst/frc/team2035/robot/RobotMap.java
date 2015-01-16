@@ -19,7 +19,7 @@ public class RobotMap {
     public static final int B_LEFT_MOTOR_PWM = 1; // Rear Left drive motor is wired to PWM out 1
     public static final int F_RIGHT_MOTOR_PWM = 2; // Front Right drive motor is wired to PWM out 2
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
-    public static final int ChainMotor_PWM = 4; //chain motor is wired to PWM out 4
+    public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
     
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
@@ -33,7 +33,7 @@ public class RobotMap {
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
-    public static final double ForkliftMotorSpeed = 0.5; //chain motor lift speed is set to lift at half speed 50%
-    public static final double ForkliftOffMotorSpeed = 0.0; //chain motor stationary is set to 0%
-    public static final double ForkliftReverseMotorSpeed = -0.5; //chain motor reverses at half speed -50%
+    public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
+    public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
+    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
 }

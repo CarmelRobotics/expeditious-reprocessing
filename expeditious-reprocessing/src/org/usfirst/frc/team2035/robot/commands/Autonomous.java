@@ -13,17 +13,17 @@ public class Autonomous extends CommandBase {
 	//IMPORTANT! CODE IS NOT FULLY DEVELOPED! UPDATE PERIODICALLY
 	
 	
-	private final DriveTrain drive;
-	private final Forklift lift;
+	private final DriveTrain DRIVE;
+	private final Forklift LIFT;
 	private Timer autonomousTimer;
-	private final double MotorOnSpeed = RobotMap.AutonomousSpeed; //add AutonomousSpeed on Robot Map (recommended speed 40)
-	private final double Motoroffspeed = 0.0;
+	private final double MOTOR_ON_SPEED = RobotMap.AutonomousSpeed; //add AutonomousSpeed on Robot Map (recommended speed 40)
+	private final double MOTOR_OFF_SPEED = 0.0;
 	private double storedTime;
 	
 	public Autonomous() {
 		super("drive");
-		drive = Robot.getDriveTrain();
-		lift = Robot.getForklift();
+		DRIVE = Robot.getDriveTrain();
+		LIFT = Robot.getForklift();
 	}
 	
 	
@@ -35,9 +35,9 @@ public class Autonomous extends CommandBase {
 	protected void execute() {
 		double currentTime = autonomousTimer.get();
 		if(currentTime > 0.0 && currentTime < .5){ //Change time that is needed 
-			drive.arcadeDrive(MotorsOnSpeed, MotorsOnSpeed);
+			DRIVE.arcadeDrive();
 		} else if (currentTime >.5 && currentTime < 5.0){
-			lift.lift(); //change that is needed
+			//LIFT.lift(); //change that is needed
 		}
 	}
 	
