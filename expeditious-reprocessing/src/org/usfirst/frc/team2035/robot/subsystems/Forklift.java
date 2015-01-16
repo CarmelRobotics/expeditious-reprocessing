@@ -10,7 +10,7 @@ public class Forklift extends Subsystem {
 	private final Talon chainmotor;
 	
 	public Forklift() {
-		chainmotor = new Talon(RobotMap.ChainMotor_PWM); // make sure to make this in robot map
+		chainmotor = new Talon(RobotMap.CHAIN_MOTOR_PWM); // make sure to make this in robot map
 	}
 	 public void initDefaultCommand() {
 		 
@@ -19,15 +19,15 @@ public class Forklift extends Subsystem {
 	 }
 	
 	public void setliftforklift() {
-		chainmotor.set(RobotMap.ForkliftMotorSpeed); // make sure to make this in robot map
+		chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
 	}
 
 	public void setstopforklift() {
-		chainmotor.set(RobotMap.ForkliftOffMotorSpeed); // make this in robot map
+		chainmotor.set(RobotMap.FORKLIFT_OFF_MOTOR_SPEED); // make this in robot map
 	}
 
 	public void setreverseforklift() {
-		chainmotor.set(RobotMap.ForkliftReverseMotorSpeed);// make this in robot map
+		chainmotor.set(RobotMap.FORKLIFT_REVERSE_MOTOR_SPEED);// make this in robot map
 	}
 	
 	
