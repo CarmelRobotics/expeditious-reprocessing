@@ -1,5 +1,5 @@
 package org.usfirst.frc.team2035.robot.commands;
-//package edu.wpi.first.wpilibj.templates.commands;
+
 import edu.wpi.first.wpilibj.Timer;
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2035.robot.*;
@@ -18,7 +18,7 @@ public class Autonomous extends CommandBase {
 	private Timer autonomousTimer;
 	private final double MotorOnSpeed = RobotMap.AutonomousSpeed; //add AutonomousSpeed on Robot Map (recommended speed 40)
 	private final double Motoroffspeed = 0.0;
-	private double sotredTime;
+	private double storedTime;
 	
 	public Autonomous() {
 		super("drive");
