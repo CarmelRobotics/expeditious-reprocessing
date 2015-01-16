@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -22,7 +23,8 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
-	private DriveTrain driver;
+	private static DriveTrain driver;
+	private static Forklift fork;
 	private Autonomous autonomous;
 
     Command autonomousCommand;
@@ -92,4 +94,15 @@ public class Robot extends IterativeRobot {
     public void testPeriodic() {
         LiveWindow.run();
     }
-}
+    
+    public static DriveTrain getDriveTrain() {
+    	return driver;
+    }
+    
+    public static Forklift getForklift() {
+    	return fork;
+    }
+    
+    
+ }
+
