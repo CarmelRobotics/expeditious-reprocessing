@@ -20,6 +20,7 @@ public class Autonomous extends CommandBase {
 	private final double MOTOR_ON_SPEED = RobotMap.AutonomousSpeed; //add AutonomousSpeed on Robot Map (recommended speed 40)
 	private final double MOTOR_OFF_SPEED = 0.0;
 	private double storedTime;
+	//comment
 	
 	public Autonomous() {
 		super("drive");
