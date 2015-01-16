@@ -1,9 +1,11 @@
 
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.CameraServer;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
@@ -27,11 +29,14 @@ public class Robot extends IterativeRobot {
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
+    CameraServer camera;
     
     public Robot()
     {
     	driver = new DriveTrain();
- //   	autonomous = new Autonomous();
+    	 camera = CameraServer.getInstance();
+         camera.setQuality(50);
+         camera.startAutomaticCapture("cam1");
     	
     }
 
