@@ -36,7 +36,7 @@ public class Autonomous extends CommandBase {
 	protected void execute() {
 		double currentTime = autonomousTimer.get();
 		if(currentTime > 0.0 && currentTime < .5){ //Change time that is needed 
-			DRIVE.arcadeDrive();
+			DRIVE.drive(MOTOR_ON_SPEED);
 		} else if (currentTime >.5 && currentTime < 5.0){
 			//LIFT.lift(); //change that is needed
 		}

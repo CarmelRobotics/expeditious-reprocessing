@@ -31,4 +31,8 @@ public class DriveTrain {
         drive.arcadeDrive(stick.getY(), stick.getX());
     }
     
+    public void drive(double speed) {
+        drive.drive(speed, 0.0);
+    }
+    
 }
