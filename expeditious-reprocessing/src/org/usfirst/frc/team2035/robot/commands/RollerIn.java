@@ -23,7 +23,7 @@ public class RollerIn extends CommandBase {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		roller.rollerIn();
+		roller.rollerOutIn();
 	}
 
 	@Override

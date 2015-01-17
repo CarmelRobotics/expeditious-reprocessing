@@ -3,7 +3,7 @@ package org.usfirst.frc.team2035.robot;
 import edu.wpi.first.wpilibj.buttons.Button;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.commands.RollerIn;
-import org.usfirst.frc.team2035.robot.commands.RollerOut;
+import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
 /**
@@ -51,9 +51,9 @@ public class OI {
 	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
 	    
 	    rollerIn.whenPressed(new RollerIn());
-	    rollerOut.whenPressed(new RollerOut());
-	    rollerMotorIn.whenPressed(new RollerMotorOut());
-	    rollerMotorOut.whenPressed(new RollerMotorIn());
+	    rollerOut.whenPressed(new RollerOutIn());
+	    rollerMotorIn.whileHeld(new RollerMotorOut());
+	    //rollerMotorOut.whenPressed(new RollerMotorIn());
 	    
 	}
 }

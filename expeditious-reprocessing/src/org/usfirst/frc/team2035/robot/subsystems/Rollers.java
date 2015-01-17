@@ -11,6 +11,7 @@ public class Rollers extends Subsystem {
 	private final Solenoid rightPiston;
 	private final Victor rightMotor;
 	private final Victor leftMotor;
+	private boolean out = false;
 	
 	public Rollers()
 	{
@@ -25,17 +26,22 @@ public class Rollers extends Subsystem {
 	        //setDefaultCommand(new MySpecialCommand());
 	    }
 	 
-	 public void rollerOut()
+	 public void rollerOutIn()
 	 {
+		if (out == false)
+		{
 		leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
 		rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);
+		out = true;
+		}
+		else
+		{
+			leftPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
+			rightPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
+			out = false;
+		}
 	 }
 	 
-	 public void rollerIn()
-	 {
-		leftPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
-		rightPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
-	 }
 	 
 	 public void spinIn()
 	 {
