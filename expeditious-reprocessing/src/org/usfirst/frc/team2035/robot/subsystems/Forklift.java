@@ -12,11 +12,11 @@ public class Forklift extends Subsystem {
 	public Forklift() {
 		chainmotor = new Talon(RobotMap.CHAIN_MOTOR_PWM); // make sure to make this in robot map
 	}
-	 public void initDefaultCommand() {
+	public void initDefaultCommand() {
 		 
 	        // Set the default command for a subsystem here.
 	        //setDefaultCommand(new MySpecialCommand());
-	 }
+	}
 	
 	public void setliftforklift() {
 		chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map

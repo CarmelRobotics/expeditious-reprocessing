@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	private static DriveTrain driver;
 	private static Forklift fork;
 	private static Rollers roller;
+	private static Compressor compressor;
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
@@ -50,6 +52,15 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
+		
+		compressor = new Compressor(RobotMap.PRESSURE_SWITCH_DIG_IN);
+		
+        compressor.start();
+        
+        if(!compressor.getPressureSwitchValue())
+        {
+        	compressor.stop();
+        }
     }
 	
 	public void disabledPeriodic() {
