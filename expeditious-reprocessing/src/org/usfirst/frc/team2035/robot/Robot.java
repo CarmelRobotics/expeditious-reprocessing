@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.IterativeRobot; 
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
+import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -26,6 +27,7 @@ public class Robot extends IterativeRobot {
 	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
 	private static DriveTrain driver;
 	private static Forklift fork;
+	private static Rollers roller;
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
@@ -105,6 +107,11 @@ public class Robot extends IterativeRobot {
     
     public static Forklift getForklift() {
     	return fork;
+    }
+    
+    public static Rollers getRollers()
+    {
+    	return roller;
     }
     
     
