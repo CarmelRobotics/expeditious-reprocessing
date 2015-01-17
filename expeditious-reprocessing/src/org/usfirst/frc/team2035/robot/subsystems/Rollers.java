@@ -51,8 +51,8 @@ public class Rollers extends Subsystem {
 	 
 	 public void motorOff()
 	 {
-		 rightMotor.set(0);
-		 leftMotor.set(0);
+		 rightMotor.set(0.0);
+		 leftMotor.set(0.0);
 	 }
 	
 }

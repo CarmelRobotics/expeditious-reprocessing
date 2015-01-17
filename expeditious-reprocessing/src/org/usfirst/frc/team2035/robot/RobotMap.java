@@ -34,7 +34,7 @@ public class RobotMap {
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
-    public static final double AutonomousSpeed = 0.40; //Autonomous speed set to 40%
+    public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
     public static final double ROLLER_SPEED = 1.0;
     
     public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
@@ -44,14 +44,14 @@ public class RobotMap {
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
-    public static final Joystick DriverJoystick = new Joystick(1);
+    public static final Joystick DRIVER_JOYSTICK = new Joystick(1);
     
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
     public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
     
-    public static final JoystickButton ButtonRollerExtend = new JoystickButton(DriverJoystick, 2);
-    public static final JoystickButton ButtonRollerRetract = new JoystickButton(DriverJoystick, 3);
-    public static final JoystickButton ButtonRollerMotorSpin = new JoystickButton(DriverJoystick, 4);
-    public static final JoystickButton ButtonRollerMotorSpit = new JoystickButton(DriverJoystick, 5);
+    public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
+    public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 4);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
 }

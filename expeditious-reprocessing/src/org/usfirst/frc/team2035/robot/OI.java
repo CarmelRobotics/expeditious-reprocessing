@@ -45,10 +45,10 @@ public class OI {
 	
 	public static void initialize()
 	{
-		rollerIn = RobotMap.ButtonRollerExtend;
-	    rollerOut = RobotMap.ButtonRollerRetract;
-	    rollerMotorIn = RobotMap.ButtonRollerMotorSpin;
-	    rollerMotorOut = RobotMap.ButtonRollerMotorSpit;
+		rollerIn = RobotMap.BUTTON_ROLLER_EXTEND;
+	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
+	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
+	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
 	    
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOut());
