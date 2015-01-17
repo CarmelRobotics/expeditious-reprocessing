@@ -59,7 +59,6 @@ public class RobotMap {
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
-    public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
