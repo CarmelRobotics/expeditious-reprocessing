@@ -5,6 +5,9 @@ package org.usfirst.frc.team2035.robot;
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
+
+import edu.wpi.first.wpilibj.Joystick;
+
 public class RobotMap {
     // For example to map the left and right motors, you could define the
     // following variables to use with your drivetrain subsystem.
@@ -24,10 +27,12 @@ public class RobotMap {
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
-    public static final double AutonomousSpeed = 0.40; //Autonomous speed set to 40%
+    public static final double AUTONOMOUS_SPEED = 0.40; //Autonomous speed set to 40%
     
     public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
     
+    public static final int JOYSTICK_USB_NUMBER = 1;
+    public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
     // Organize this later
     /*
