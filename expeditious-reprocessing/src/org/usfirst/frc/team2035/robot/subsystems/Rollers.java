@@ -7,17 +7,17 @@ import org.usfirst.frc.team2035.robot.RobotMap;
 
 public class Rollers extends Subsystem {
 
-	private final Solenoid 	leftPiston;
-	private final Solenoid rightPiston;
-	private final Victor rightMotor;
-	private final Victor leftMotor;
+	private final Solenoid 	LEFT_PISTON;
+	private final Solenoid RIGHT_PISTON;
+	private final Victor RIGHT_MOTOR;
+	private final Victor LEFT_MOTOR;
 	
 	public Rollers()
 	{
-		rightMotor = new Victor(RobotMap.RIGHT_ROLLER_MOTOR);
-		leftMotor = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
-		leftPiston = new Solenoid(RobotMap.LEFT_ROLLER_PISTON);
-		rightPiston = new Solenoid(RobotMap.RIGHT_ROLLER_PISTON);
+		RIGHT_MOTOR = new Victor(RobotMap.RIGHT_ROLLER_MOTOR);
+		LEFT_MOTOR = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
+		LEFT_PISTON = new Solenoid(RobotMap.LEFT_ROLLER_PISTON);
+		RIGHT_PISTON = new Solenoid(RobotMap.RIGHT_ROLLER_PISTON);
 	}
 	
 	 public void initDefaultCommand() {
@@ -27,32 +27,32 @@ public class Rollers extends Subsystem {
 	 
 	 public void rollerOut()
 	 {
-		leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
-		rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);
+		LEFT_PISTON.set(RobotMap.ROLLER_PISTON_VALUE);
+		RIGHT_PISTON.set(RobotMap.ROLLER_PISTON_VALUE);
 	 }
 	 
 	 public void rollerIn()
 	 {
-		leftPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
-		rightPiston.set(!RobotMap.ROLLER_PISTON_VALUE);
+		LEFT_PISTON.set(!RobotMap.ROLLER_PISTON_VALUE);
+		RIGHT_PISTON.set(!RobotMap.ROLLER_PISTON_VALUE);
 	 }
 	 
 	 public void spinIn()
 	 {
-		 rightMotor.set(RobotMap.ROLLER_SPEED);
-		 leftMotor.set(RobotMap.ROLLER_SPEED);
+		 RIGHT_MOTOR.set(RobotMap.ROLLER_SPEED);
+		 LEFT_MOTOR.set(RobotMap.ROLLER_SPEED);
 	 }
 	 
 	 public void spinOut()
 	 {
-		 rightMotor.set(-RobotMap.ROLLER_SPEED);
-		 leftMotor.set(-RobotMap.ROLLER_SPEED);
+		 RIGHT_MOTOR.set(-RobotMap.ROLLER_SPEED);
+		 LEFT_MOTOR.set(-RobotMap.ROLLER_SPEED);
 	 }
 	 
 	 public void motorOff()
 	 {
-		 rightMotor.set(0.0);
-		 leftMotor.set(0.0);
+		 RIGHT_MOTOR.set(0.0);
+		 LEFT_MOTOR.set(0.0);
 	 }
 	
 }
