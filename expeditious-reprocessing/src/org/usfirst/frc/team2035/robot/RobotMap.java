@@ -7,6 +7,7 @@ package org.usfirst.frc.team2035.robot;
  */
 
 import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.Relay;
 
 public class RobotMap {
     // For example to map the left and right motors, you could define the
@@ -25,6 +26,11 @@ public class RobotMap {
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
     
     /*
+     * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
+     */
+    public static final int PRESSURE_SWITCH_DIG_IN = 14;
+    
+    /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
     public static final double AUTONOMOUS_SPEED = 0.40; //Autonomous speed set to 40%
@@ -33,6 +39,12 @@ public class RobotMap {
     
     public static final int JOYSTICK_USB_NUMBER = 1;
     public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
+    
+    
+    /*
+     * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
+     */
+    public static final int COMPRESSOR_RELAY = 5;
     
     // Organize this later
     /*
