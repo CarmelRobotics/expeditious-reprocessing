@@ -1,7 +1,11 @@
 package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.buttons.Button;
-
+import org.usfirst.frc.team2035.robot.RobotMap;
+import org.usfirst.frc.team2035.robot.commands.RollerIn;
+import org.usfirst.frc.team2035.robot.commands.RollerOut;
+import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
+import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -33,5 +37,24 @@ public class OI {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	
+	private static Button rollerIn;
+	private static Button rollerOut;
+	private static Button rollerMotorIn;
+	private static Button rollerMotorOut;
+	
+	public static void initialize()
+	{
+		rollerIn = RobotMap.BUTTON_ROLLER_EXTEND;
+	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
+	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
+	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
+	    
+	    rollerIn.whenPressed(new RollerIn());
+	    rollerOut.whenPressed(new RollerOut());
+	    rollerMotorIn.whenPressed(new RollerMotorOut());
+	    rollerMotorOut.whenPressed(new RollerMotorIn());
+	    
+	}
 }
 
