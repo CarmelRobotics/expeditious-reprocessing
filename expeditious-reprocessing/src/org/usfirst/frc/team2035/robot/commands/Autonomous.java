@@ -17,7 +17,7 @@ public class Autonomous extends CommandBase {
 	private final DriveTrain DRIVE;
 	private final Forklift LIFT;
 	private Timer autonomousTimer;
-	private final double MOTOR_ON_SPEED = RobotMap.AUTONOMOUS_SPEED; //add AutonomousSpeed on Robot Map (recommended speed 40)
+	private final double MOTOR_ON_SPEED = RobotMap.AUTONOMOUS_SPEED; //add AutonomousSpeed on Robot Map (recommended speed 40) test
 	private final double MOTOR_OFF_SPEED = 0.0;
 	private double storedTime;
 	
