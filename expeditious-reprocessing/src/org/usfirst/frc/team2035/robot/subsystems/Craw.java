@@ -2,6 +2,7 @@ package org.usfirst.frc.team2035.robot.subsystems;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Craw extends Subsystem{
@@ -24,6 +25,12 @@ public class Craw extends Subsystem{
 	{
 		CrawLeftPiston.set(!RobotMap.CRAW_PISTON_VALUE);
 		CrawRightPiston.set(!RobotMap.CRAW_PISTON_VALUE);
+	}
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
+		
 	}
 		
 
