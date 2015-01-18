@@ -28,8 +28,11 @@ public class RobotMap {
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
+    public static final int CRAW_LEFT_PISTON = 2;
+    public static final int CRAW_RIGHT_PISTON = 3;
     
     public static final boolean ROLLER_PISTON_VALUE = true;
+    public static final boolean CRAW_PISTON_VALUE = true;
     
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
@@ -54,4 +57,6 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 4);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
+	
+
 }
