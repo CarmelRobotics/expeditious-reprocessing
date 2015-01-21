@@ -28,7 +28,7 @@ public class Rollers extends Subsystem {
 	 
 	 public void rollerOutIn()
 	 {
-		if (out == false)
+		 if (out == false)
 		{
 		leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
 		rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);
@@ -42,7 +42,7 @@ public class Rollers extends Subsystem {
 		}
 	 }
 	 
-	 
+	
 	 public void spinIn()
 	 {
 		 rightMotor.set(RobotMap.ROLLER_SPEED);
