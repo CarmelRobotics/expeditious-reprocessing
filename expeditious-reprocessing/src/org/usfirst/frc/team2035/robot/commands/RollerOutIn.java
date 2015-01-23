@@ -1,15 +1,15 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.Robot; 
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 
-public class RollerOut extends CommandBase {
+public class RollerOutIn extends CommandBase {
 
 	private final Rollers roller;
 	
-	public RollerOut()
+	public RollerOutIn()
 	{
-		super("rollerout");
+		super("rolleroutin");
 		roller = Robot.getRollers();
 		requires(roller);
 	}
@@ -23,7 +23,7 @@ public class RollerOut extends CommandBase {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		roller.rollerOut();
+		roller.rollerOutIn();
 	}
 
 	@Override

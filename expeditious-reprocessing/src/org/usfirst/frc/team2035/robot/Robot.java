@@ -6,13 +6,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.Compressor;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 
-import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team2035.robot.subsystems.Forklift;
-import org.usfirst.frc.team2035.robot.subsystems.Rollers;
-import org.usfirst.frc.team2035.robot.subsystems.VisionProcessing;
+import org.usfirst.frc.team2035.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -30,16 +28,20 @@ public class Robot extends IterativeRobot {
 	private static DriveTrain driver;
 	private static Forklift fork;
 	private static Rollers roller;
+
 	private static VisionProcessing vision;
+	private static Compressor compressor;
+	private static Vision visionProcessing;
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
-    CameraServer camera;
     
     public Robot()
     {
     	driver = new DriveTrain();
     	vision = new VisionProcessing();
+        visionProcessing = new Vision();
+    	
     }
 
     /**
@@ -50,6 +52,17 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
+		
+		compressor = new Compressor(RobotMap.PRESSURE_SWITCH_DIG_IN);
+		
+        compressor.start();
+        
+        if(!compressor.getPressureSwitchValue())
+        {
+        	compressor.stop();
+        }
+        
+        visionProcessing.visionInit();
     }
 	
 	public void disabledPeriodic() {
@@ -91,6 +104,9 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         driver.arcadeDrive();
+        
+        visionProcessing.initDefaultCommand();
+        
     	System.out.println("Loop is running");
         Timer.delay(K_UPDATE_PERIOD);
     }

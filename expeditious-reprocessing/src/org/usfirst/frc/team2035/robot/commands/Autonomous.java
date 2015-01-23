@@ -11,13 +11,13 @@ import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
 public class Autonomous extends CommandBase {
 	
-	//IMPORTANT! CODE IS NOT FULLY DEVELOPED! UPDATE PERIODICALLY BA
+	//IMPORTANT! CODE IS NOT FULLY DEVELOPED! UPDATE PERIODICALLY
 	
 	
 	private final DriveTrain DRIVE;
 	private final Forklift LIFT;
 	private Timer autonomousTimer;
-	private final double MOTOR_ON_SPEED = RobotMap.AUTONOMOUS_SPEED; //add AutonomousSpeed on Robot Map (recommended speed 40) test
+	private final double MOTOR_ON_SPEED = RobotMap.AUTONOMOUS_SPEED; //add AutonomousSpeed on Robot Map (recommended speed 40)
 	private final double MOTOR_OFF_SPEED = 0.0;
 	private double storedTime;
 	

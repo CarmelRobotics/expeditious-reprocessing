@@ -25,11 +25,19 @@ public class RobotMap {
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
     public static final int RIGHT_ROLLER_MOTOR = 5;
     public static final int LEFT_ROLLER_MOTOR = 6;
+    public static final int CRAW_MOTOR = 7;
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
     
     public static final boolean ROLLER_PISTON_VALUE = true;
+    
+    /*
+     * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
+     */
+    public static final int PRESSURE_SWITCH_DIG_IN = 14;
+    
+    /*
     
     /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
@@ -39,19 +47,30 @@ public class RobotMap {
     
     public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
     
+    public static final int JOYSTICK_USB_NUMBER = 1;
+    public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
+    
+    public static final int DIG_IN_CHANNEL1 = 1;
+    public static final int DIG_IN_CHANNEL2 = 2;
+    
+    /*
+     * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
+     */
+    public static final int COMPRESSOR_RELAY = 5;
     
     // Organize this later
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
-    public static final Joystick DRIVER_JOYSTICK = new Joystick(1);
     
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
     public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
+    public static final double CRAW_SPEED_UP = 0.40;
+    public static final double CRAW_SPEED_DOWN = -0.40;
     
     public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
-    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 4);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
 }
