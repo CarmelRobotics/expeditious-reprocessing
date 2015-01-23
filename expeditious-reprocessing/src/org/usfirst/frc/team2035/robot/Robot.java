@@ -8,9 +8,11 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
+
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
+import org.usfirst.frc.team2035.robot.subsystems.VisionProcessing;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -28,6 +30,7 @@ public class Robot extends IterativeRobot {
 	private static DriveTrain driver;
 	private static Forklift fork;
 	private static Rollers roller;
+	private static VisionProcessing vision;
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
@@ -36,10 +39,7 @@ public class Robot extends IterativeRobot {
     public Robot()
     {
     	driver = new DriveTrain();
-    	 camera = CameraServer.getInstance();
-         camera.setQuality(50);
-         camera.startAutomaticCapture("cam1");
-    	
+    	vision = new VisionProcessing();
     }
 
     /**
@@ -65,6 +65,7 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
+    	vision.initDefaultCommand();
         Scheduler.getInstance().run();
     }
 
@@ -113,7 +114,10 @@ public class Robot extends IterativeRobot {
     {
     	return roller;
     }
-    
+    public static VisionProcessing  getVision()
+    {
+    	return vision;
+    }    
     
  }
 
