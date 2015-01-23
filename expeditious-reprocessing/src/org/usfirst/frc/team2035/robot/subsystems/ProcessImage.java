@@ -1,11 +1,12 @@
 package org.usfirst.frc.team2035.robot.subsystems;
 
 import java.lang.Math;
+
 import java.util.Comparator;
 import java.util.Vector;
 
-import org.usfirst.frc.team2035.robot.subsystems.VisionProcessing.Scores;
-import org.usfirst.frc.team2035.robot.subsystems.VisionProcessing.ParticleReport;
+import org.usfirst.frc.team2035.robot.subsystems.ProcessImage.Scores;
+import org.usfirst.frc.team2035.robot.subsystems.ProcessImage.ParticleReport;
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
@@ -13,11 +14,10 @@ import com.ni.vision.NIVision.ImageType;
 import com.ni.vision.VisionException;
 
 import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class VisionProcessing {
+public class ProcessImage {
 	CameraServer server;
 	int session;
 	
@@ -69,7 +69,7 @@ public class VisionProcessing {
 	NIVision.ParticleFilterOptions2 filterOptions = new NIVision.ParticleFilterOptions2(0,0,1,1);
 	Scores scores = new Scores();
 
-	public void initDefaultCommand() 
+	public void initProcessImage() 
 	{
 	    // create images
 		frame = NIVision.imaqCreateImage(ImageType.IMAGE_RGB, 0);
@@ -87,6 +87,9 @@ public class VisionProcessing {
 	
 	//read file in from disk. For this example to run you need to copy image20.jpg from the SampleImages folder to the
 	//directory shown below using FTP or SFTP: http://wpilib.screenstepslive.com/s/4485/m/24166/l/282299-roborio-ftp
+}
+	public void processImage()
+{
 	try
 	{
 		NIVision.imaqReadFile(frame, "/images/test.jpg");

@@ -29,7 +29,7 @@ public class Robot extends IterativeRobot {
 	private static Forklift fork;
 	private static Rollers roller;
 
-	private static VisionProcessing vision;
+	private static ProcessImage imageProcess;
 	private static Compressor compressor;
 	private static Vision visionProcessing;
 //	private Autonomous autonomous;
@@ -39,7 +39,7 @@ public class Robot extends IterativeRobot {
     public Robot()
     {
     	driver = new DriveTrain();
-    	vision = new VisionProcessing();
+    	imageProcess = new ProcessImage();
         visionProcessing = new Vision();
     	
     }
@@ -52,17 +52,9 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-		
-		compressor = new Compressor(RobotMap.PRESSURE_SWITCH_DIG_IN);
-		
-        compressor.start();
-        
-        if(!compressor.getPressureSwitchValue())
-        {
-        	compressor.stop();
-        }
         
         visionProcessing.visionInit();
+        imageProcess.initProcessImage();
     }
 	
 	public void disabledPeriodic() {
@@ -78,7 +70,6 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-    	vision.initDefaultCommand();
         Scheduler.getInstance().run();
     }
 
@@ -106,9 +97,11 @@ public class Robot extends IterativeRobot {
         driver.arcadeDrive();
         
         visionProcessing.initDefaultCommand();
+        Timer.delay(K_UPDATE_PERIOD);
+        imageProcess.processImage();
         
     	System.out.println("Loop is running");
-        Timer.delay(K_UPDATE_PERIOD);
+    	Timer.delay(K_UPDATE_PERIOD);
     }
     
     /**
@@ -130,9 +123,9 @@ public class Robot extends IterativeRobot {
     {
     	return roller;
     }
-    public static VisionProcessing  getVision()
+    public static ProcessImage  getVision()
     {
-    	return vision;
+    	return imageProcess;
     }    
     
  }
