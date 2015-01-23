@@ -9,9 +9,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
-import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team2035.robot.subsystems.Forklift;
-import org.usfirst.frc.team2035.robot.subsystems.Rollers;
+import org.usfirst.frc.team2035.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -30,17 +28,16 @@ public class Robot extends IterativeRobot {
 	private static Forklift fork;
 	private static Rollers roller;
 	private static Compressor compressor;
+	private static Vision visionProcessing;
+	
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
-    CameraServer camera;
     
     public Robot()
     {
     	driver = new DriveTrain();
-    	 camera = CameraServer.getInstance();
-         camera.setQuality(50);
-         camera.startAutomaticCapture("cam1");
+        visionProcessing = new Vision();
     	
     }
 
@@ -61,6 +58,8 @@ public class Robot extends IterativeRobot {
         {
         	compressor.stop();
         }
+        
+        visionProcessing.visionInit();
     }
 	
 	public void disabledPeriodic() {
@@ -101,6 +100,9 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         driver.arcadeDrive();
+        
+        visionProcessing.initDefaultCommand();
+        
     	System.out.println("Loop is running");
         Timer.delay(K_UPDATE_PERIOD);
     }
