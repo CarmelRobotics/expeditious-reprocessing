@@ -42,28 +42,30 @@ public class RobotMap {
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
     public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
-    public static final double ROLLER_SPEED = 1.0;
-    
-    public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
-    
+    public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0  
     public static final int JOYSTICK_USB_NUMBER = 1;
     public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
-    
     
     /*
      * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
     public static final int COMPRESSOR_RELAY = 5;
     
-    // Organize this later
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
-    
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
     public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
     
+    /*
+     * ROLLER MOTOR SUBSYSTEM SYSTEM CONSTANTS
+     */
+    public static final double ROLLER_SPEED = 1.0;
+    
+    /*
+     * DRIVER JOYSTICK SYSTEM BUTTONS
+     */
     public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);

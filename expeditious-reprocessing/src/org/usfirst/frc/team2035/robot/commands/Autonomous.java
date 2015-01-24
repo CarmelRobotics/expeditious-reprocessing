@@ -13,6 +13,13 @@ public class Autonomous extends CommandBase {
 	
 	//IMPORTANT! CODE IS NOT FULLY DEVELOPED! UPDATE PERIODICALLY
 	
+	/**Steps:
+	 * 1: Drive forward 0.5 seconds.
+	 * 2: Stop driving
+	 * 3: Lift forklift
+	 * 4:
+	 */
+	
 	
 	private final DriveTrain DRIVE;
 	private final Forklift LIFT;
@@ -27,23 +34,24 @@ public class Autonomous extends CommandBase {
 		LIFT = Robot.getForklift();
 	}
 	
-	
+	 // Called just before this Command runs the first time
 	protected void initialize() {
 		autonomousTimer = new Timer();
 		autonomousTimer.start();
 	}
 	
+	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		double currentTime = autonomousTimer.get();
 		if(currentTime > 0.0 && currentTime < .5){ //Change time that is needed 
 			DRIVE.drive(MOTOR_ON_SPEED);
 		} else if (currentTime >.5 && currentTime < 5.0){
-			//LIFT.lift(); //change that is needed
+			LIFT.setliftforklift(); //change that is needed
 		}
 	}
 	
 	
-
+	 // Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
 		if (autonomousTimer.get() > 15.0) {
             return true;
@@ -55,6 +63,7 @@ public class Autonomous extends CommandBase {
 		
 	}
 	
+	// Called once after isFinished returns true
 	protected void end()
 	{
 		
