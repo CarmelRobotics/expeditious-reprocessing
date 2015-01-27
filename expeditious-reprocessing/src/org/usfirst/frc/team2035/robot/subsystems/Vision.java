@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.subsystems;
 
-import com.ni.vision.NIVision;
+import com.ni.vision.NIVision; 
 import com.ni.vision.NIVision.DrawMode;
 import com.ni.vision.NIVision.Image;
 import com.ni.vision.NIVision.ShapeMode;
@@ -21,6 +21,7 @@ public class Vision extends Subsystem {
     int session;
     Image frame;
     NIVision.RawData colorTable;
+    CameraServer server;
 
     public void visionInit()
     {
@@ -34,7 +35,7 @@ public class Vision extends Subsystem {
         colorTable = new NIVision.RawData();
     }
 
-    public void initDefaultCommand() {
+    public void saveImage() {
         NIVision.IMAQdxStartAcquisition(session);
 
         /**
@@ -60,4 +61,10 @@ public class Vision extends Subsystem {
 
     public void test() {
     }
+
+	@Override
+	protected void initDefaultCommand() {
+		// TODO Auto-generated method stub
+		
+	}
 }

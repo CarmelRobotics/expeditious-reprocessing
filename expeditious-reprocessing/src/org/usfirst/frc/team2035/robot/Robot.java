@@ -1,7 +1,7 @@
 
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.IterativeRobot; 
+import edu.wpi.first.wpilibj.IterativeRobot;  
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -21,7 +21,7 @@ import edu.wpi.first.wpilibj.Timer;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends IterativeRobot{
 
 	public static OI oi;
 	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
@@ -29,9 +29,9 @@ public class Robot extends IterativeRobot {
 	private static Forklift fork;
 	private static Rollers roller;
 
-	private static ProcessImage imageProcess;
+	//private static ProcessImage imageProcess;
 	private static Compressor compressor;
-	private static Vision visionProcessing;
+	private static Vision grabImage;
 //	private Autonomous autonomous;
 
     Command autonomousCommand;
@@ -39,8 +39,8 @@ public class Robot extends IterativeRobot {
     public Robot()
     {
     	driver = new DriveTrain();
-    	imageProcess = new ProcessImage();
-        visionProcessing = new Vision();
+    	//imageProcess = new ProcessImage();
+        grabImage = new Vision();
     	
     }
 
@@ -53,8 +53,8 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
         
-        visionProcessing.visionInit();
-        imageProcess.initProcessImage();
+        grabImage.visionInit();
+        //imageProcess.initProcessImage();
     }
 	
 	public void disabledPeriodic() {
@@ -71,6 +71,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println("Auton Loop is running");
     }
 
     public void teleopInit() {
@@ -96,12 +97,12 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         driver.arcadeDrive();
         
-        visionProcessing.initDefaultCommand();
-        Timer.delay(K_UPDATE_PERIOD);
-        imageProcess.processImage();
+        grabImage.saveImage();
+        //Timer.delay(K_UPDATE_PERIOD);
+        //imageProcess.processImage();
         
-    	System.out.println("Loop is running");
-    	Timer.delay(K_UPDATE_PERIOD);
+    	System.out.println("Teleop Loop is running");
+    	//Timer.delay(K_UPDATE_PERIOD);
     }
     
     /**
@@ -123,10 +124,10 @@ public class Robot extends IterativeRobot {
     {
     	return roller;
     }
-    public static ProcessImage  getVision()
-    {
-    	return imageProcess;
-    }    
+    //public static ProcessImage  getVision()
+    //{
+    	//return imageProcess;
+    //}    
     
  }
 
