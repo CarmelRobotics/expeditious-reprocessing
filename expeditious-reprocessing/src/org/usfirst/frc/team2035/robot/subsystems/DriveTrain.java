@@ -17,11 +17,11 @@ public class DriveTrain extends Subsystem{
     private SpeedController motorBackLeft;
     private SpeedController motorFrontRight;
     private SpeedController motorBackRight;
-    private RobotDrive drive;
-
+    private RobotDrive drive;    
 
     public DriveTrain() {
     	super("Drive Train");
+    	
         motorFrontLeft = new Talon(RobotMap.F_LEFT_MOTOR_PWM); // initialize the motor as a Talon on channel 0
         motorBackLeft = new Talon(RobotMap.B_LEFT_MOTOR_PWM);
         motorFrontRight = new Talon(RobotMap.F_RIGHT_MOTOR_PWM);
@@ -43,4 +43,7 @@ public class DriveTrain extends Subsystem{
         drive.drive(speed, 0.0);
     }
     
+    public void rotate(double rot) {
+    	drive.drive(0, rot);
+    }
 }
