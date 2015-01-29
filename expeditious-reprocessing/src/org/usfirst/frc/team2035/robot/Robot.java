@@ -21,6 +21,24 @@ import edu.wpi.first.wpilibj.Timer;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+
+/**
+ * ORDER OF EXECUTION:
+ * robotInit() - called once after the boot up of the roboRIO.
+ * disabledInit() - called once, every time the robot is placed in disabled mode.
+ * disabledPeriodic() - called multiple times each second, during which the robot is in disabled mode.
+ * autonomousInit() - called once, every time the robot is placed in autonomous mode.
+ * autonomousPeriodic() - called multiple times each second, during which the robot is autonomously controlled.
+ * telopInit() - called once, every time the robot is placed in tele-operated mode.
+ * teleopPeriodic() - called multiple times each second, during which the robot is user controlled.
+ * 
+ * On the competition field, the order of modes is:
+ * disabled (while the field is getting ready)
+ * autonomous (15 seconds duration)
+ * disabled (briefly)
+ * teleop (2 minute duration)
+ * disabled (until the robot is powered off)
+ */
 public class Robot extends IterativeRobot{
 
 	public static OI oi;
