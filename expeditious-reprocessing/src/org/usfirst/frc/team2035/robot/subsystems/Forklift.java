@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem; 
+import edu.wpi.first.wpilibj.command.Subsystem;  
 import edu.wpi.first.wpilibj.Talon; 
 import org.usfirst.frc.team2035.robot.RobotMap;
 import edu.wpi.first.wpilibj.DigitalInput;

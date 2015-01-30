@@ -33,6 +33,7 @@ public class Robot extends IterativeRobot{
 	private static Compressor compressor;
 	private static Vision grabImage;
 //	private Autonomous autonomous;
+	//private static CameraFeeds camera;
 
     Command autonomousCommand;
     
@@ -41,6 +42,7 @@ public class Robot extends IterativeRobot{
     	driver = new DriveTrain();
     	//imageProcess = new ProcessImage();
         grabImage = new Vision();
+        //camera = new CameraFeeds();
     	
     }
 
@@ -53,7 +55,8 @@ public class Robot extends IterativeRobot{
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
         
-        grabImage.visionInit();
+        //grabImage.visionInit();
+        
         //imageProcess.initProcessImage();
     }
 	
@@ -80,6 +83,8 @@ public class Robot extends IterativeRobot{
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        grabImage.VisionLiveFeed();
+        
     }
 
     /**
@@ -87,17 +92,18 @@ public class Robot extends IterativeRobot{
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	grabImage.end();
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        Scheduler.getInstance().run();
+        //Scheduler.getInstance().run();
         driver.arcadeDrive();
+        grabImage.liveStream();
         
-        grabImage.saveImage();
+        //grabImage.saveImage();
         //Timer.delay(K_UPDATE_PERIOD);
         //imageProcess.processImage();
         

@@ -20,15 +20,11 @@ public class RollerOutIn extends CommandBase {
 		
 	}
 
-	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
 		roller.rollerOutIn();
 	}
 
-	@Override
 	protected boolean isFinished() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
