@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.SampleRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import org.usfirst.frc.team2035.robot.RobotMap;
 
 /**
  * This is a demo program showing the use of the NIVision class to do vision processing. 
@@ -18,23 +19,23 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The resulting image can then be sent to the FRC PC Dashboard with setImage()
  */
 public class Vision extends Subsystem {
-    int session;
-    Image frame;
-    NIVision.RawData colorTable;
+    private int session;
+    private Image frame;
+    private NIVision.RawData colorTable;
 
     public void visionInit()
     {
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
         // the camera name (ex "cam0") can be found through the roborio web interface
-        session = NIVision.IMAQdxOpenCamera("cam1",
-                NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+        session = NIVision.IMAQdxOpenCamera(RobotMap.CAM_ID,
+        		NIVision.IMAQdxCameraControlMode.CameraControlModeController);
         NIVision.IMAQdxConfigureGrab(session);
         
         colorTable = new NIVision.RawData();
     }
 
-    public void initDefaultCommand() {
+    public void saveImage() {
         NIVision.IMAQdxStartAcquisition(session);
 
         /**
@@ -46,7 +47,7 @@ public class Vision extends Subsystem {
         //loops in autonomous
 
             NIVision.IMAQdxGrab(session, frame, 1);
-            NIVision.imaqWriteJPEGFile(frame, "/images/test.jpg", 200, colorTable);
+            NIVision.imaqWriteJPEGFile(frame, RobotMap.IMAGE_PATH, 200, colorTable);
             NIVision.imaqDrawShapeOnImage(frame, frame, rect,
                     DrawMode.DRAW_VALUE, ShapeMode.SHAPE_OVAL, 0.0f);
             
@@ -54,10 +55,21 @@ public class Vision extends Subsystem {
 
             /** robot code here! **/
             Timer.delay(0.005);		// wait for a motor update time
+            
+            //NIVision.IMAQdxStopAcquisition(session);
         
-        NIVision.IMAQdxStopAcquisition(session);
     }
 
     public void test() {
     }
+    
+    protected void initDefaultCommand() {
+    
+    }
+    
+    public int getSession()
+    {
+    	return session;
+    }
+    
 }

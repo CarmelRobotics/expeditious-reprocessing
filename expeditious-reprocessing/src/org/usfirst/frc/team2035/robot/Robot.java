@@ -9,7 +9,10 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
+
 import org.usfirst.frc.team2035.robot.subsystems.*;
+
+import com.ni.vision.NIVision;
 
 import edu.wpi.first.wpilibj.Timer;
 
@@ -28,7 +31,7 @@ public class Robot extends IterativeRobot {
 	private static Forklift fork;
 	private static Rollers roller;
 	private static Compressor compressor;
-	private static Vision visionProcessing;
+	private static Vision grabImage;
 	
 //	private Autonomous autonomous;
 
@@ -37,7 +40,7 @@ public class Robot extends IterativeRobot {
     public Robot()
     {
     	driver = new DriveTrain();
-        visionProcessing = new Vision();
+        grabImage = new Vision();
     	
     }
 
@@ -50,20 +53,12 @@ public class Robot extends IterativeRobot {
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
 		
-		compressor = new Compressor(RobotMap.PRESSURE_SWITCH_DIG_IN);
 		
-        compressor.start();
-        
-        if(!compressor.getPressureSwitchValue())
-        {
-        	compressor.stop();
-        }
-        
-        visionProcessing.visionInit();
     }
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		
 	}
 
     public void autonomousInit() {
@@ -76,6 +71,7 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+        System.out.println("Auton Loop Running");
     }
 
     public void teleopInit() {
@@ -84,6 +80,10 @@ public class Robot extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        grabImage.visionInit();
+        //compressor = new Compressor(RobotMap.PRESSURE_SWITCH_DIG_IN);  
+        
     }
 
     /**
@@ -91,20 +91,39 @@ public class Robot extends IterativeRobot {
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	
+    	NIVision.IMAQdxStopAcquisition(grabImage.getSession());
+    	
+    	RobotMap.camCounter = 0;
     }
 
     /**
      * This function is called periodically during operator control
      */
+    
+    
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
         driver.arcadeDrive();
         
-        visionProcessing.initDefaultCommand();
         
-    	System.out.println("Loop is running");
+        if(RobotMap.camCounter % 100 == 0)
+        {	
+        	//grabImage.saveImage();
+        	System.out.println("Saving image");
+        }
+        
+    	System.out.println("Teleop Loop is running");
         Timer.delay(K_UPDATE_PERIOD);
+        
+        //compressor.start();
+        
+        //if(!compressor.getPressureSwitchValue())
+        //{
+        //	compressor.stop();
+        //}
+        
     }
     
     /**

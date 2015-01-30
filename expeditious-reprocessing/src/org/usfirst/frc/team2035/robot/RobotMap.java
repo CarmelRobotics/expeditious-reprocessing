@@ -73,4 +73,21 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
+    
+    
+    
+    /*
+     * Camera
+     */
+    
+    public static final String CAM_ID = "cam1";
+    
+    public static int camCounter = 0;
+    public static final int IMAGE_QUALITY = 100;
+    public static final int SAVE_IMAGE_QUALITY = 100;
+    
+    public static final String IMAGE_PATH = "/images/test.jpg";
 }
+
+
+
