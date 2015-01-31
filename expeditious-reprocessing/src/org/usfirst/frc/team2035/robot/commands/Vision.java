@@ -1,4 +1,4 @@
-package org.usfirst.frc.team2035.robot.subsystems;
+package org.usfirst.frc.team2035.robot.commands;
 
 import com.ni.vision.NIVision; 
 import com.ni.vision.NIVision.DrawMode;
@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The NIVision class supplies dozens of methods for different types of processing. 
  * The resulting image can then be sent to the FRC PC Dashboard with setImage()
  */
-public class Vision extends Subsystem {
+public class Vision {
     int session;
     Image frame;
     NIVision.RawData colorTable;
@@ -61,10 +61,4 @@ public class Vision extends Subsystem {
 
     public void test() {
     }
-
-	@Override
-	protected void initDefaultCommand() {
-		// TODO Auto-generated method stub
-		
-	}
 }
