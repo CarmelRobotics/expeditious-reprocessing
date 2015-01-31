@@ -1,12 +1,8 @@
-package org.usfirst.frc.team2035.robot.subsystems;
+package org.usfirst.frc.team2035.robot.commands;
 
 import java.lang.Math;
-
 import java.util.Comparator;
 import java.util.Vector;
-
-import org.usfirst.frc.team2035.robot.subsystems.ProcessImage.Scores;
-import org.usfirst.frc.team2035.robot.subsystems.ProcessImage.ParticleReport;
 
 import com.ni.vision.NIVision;
 import com.ni.vision.NIVision.Image;
