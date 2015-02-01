@@ -6,6 +6,7 @@ import org.usfirst.frc.team2035.robot.commands.RollerIn;
 import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
+import org.usfirst.frc.team2035.robot.commands.TestSolenoidOn;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -41,6 +42,7 @@ public class OI {
 	private static Button rollerOut;
 	private static Button rollerMotorIn;
 	private static Button rollerMotorOut;
+	private static Button solenoid;
 	
 	public static void initialize()
 	{
@@ -48,11 +50,13 @@ public class OI {
 	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
 	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
 	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
+	    solenoid = RobotMap.BUTTON_SOLENOID;
 	    
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOutIn());
 	    rollerMotorIn.whileHeld(new RollerMotorOut());
 	    //rollerMotorOut.whenPressed(new RollerMotorIn());
+	    solenoid.whenPressed(new TestSolenoidOn());
 	    
 	}
 }

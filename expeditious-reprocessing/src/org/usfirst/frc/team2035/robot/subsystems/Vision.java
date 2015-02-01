@@ -18,25 +18,34 @@ import org.usfirst.frc.team2035.robot.RobotMap;
  * The NIVision class supplies dozens of methods for different types of processing. 
  * The resulting image can then be sent to the FRC PC Dashboard with setImage()
  */
-public class Vision extends Subsystem {
-    private int session;
+public class Vision extends ExpeditiousSubsystem {
+    private int camera;
     private Image frame;
     private NIVision.RawData colorTable;
+    private CameraServer server;
 
-    public void visionInit()
+    public Vision()
+    {
+    	super("Vision");
+    }
+    public void init()
     {
         frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
         // the camera name (ex "cam0") can be found through the roborio web interface
-        session = NIVision.IMAQdxOpenCamera(RobotMap.CAM_ID,
+        camera = NIVision.IMAQdxOpenCamera(RobotMap.CAM_ID,
         		NIVision.IMAQdxCameraControlMode.CameraControlModeController);
-        NIVision.IMAQdxConfigureGrab(session);
+        NIVision.IMAQdxConfigureGrab(camera);
         
         colorTable = new NIVision.RawData();
+        
+        server = CameraServer.getInstance();
+        
+        
     }
 
-    public void saveImage() {
-        NIVision.IMAQdxStartAcquisition(session);
+    public void save() {
+        NIVision.IMAQdxStartAcquisition(camera);
 
         /**
          * grab an image, draw the circle, and provide it for the camera server
@@ -46,12 +55,12 @@ public class Vision extends Subsystem {
 
         //loops in autonomous
 
-            NIVision.IMAQdxGrab(session, frame, 1);
+            NIVision.IMAQdxGrab(camera, frame, 1);
             NIVision.imaqWriteJPEGFile(frame, RobotMap.IMAGE_PATH, 200, colorTable);
             NIVision.imaqDrawShapeOnImage(frame, frame, rect,
                     DrawMode.DRAW_VALUE, ShapeMode.SHAPE_OVAL, 0.0f);
             
-            CameraServer.getInstance().setImage(frame);
+            server.setImage(frame);
 
             /** robot code here! **/
             Timer.delay(0.005);		// wait for a motor update time
@@ -63,13 +72,13 @@ public class Vision extends Subsystem {
     public void test() {
     }
     
+    public void end() {
+    	NIVision.IMAQdxStopAcquisition(camera);
+    }
+    
     protected void initDefaultCommand() {
     
     }
     
-    public int getSession()
-    {
-    	return session;
-    }
     
 }

@@ -35,7 +35,7 @@ public class RobotMap {
     /*
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
      */
-    public static final int PRESSURE_SWITCH_DIG_IN = 14;
+    public static final int PCM_ID = 1;
     
     /*
     
@@ -73,6 +73,7 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
+    public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 1);
     
     
     

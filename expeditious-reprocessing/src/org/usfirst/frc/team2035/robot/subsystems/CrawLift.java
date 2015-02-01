@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import edu.wpi.first.wpilibj.Talon;
 
-public class CrawLift extends Subsystem {
+public class CrawLift extends ExpeditiousSubsystem {
 
 	
 	private DigitalInput limitSwitchBottom;
@@ -13,11 +13,16 @@ public class CrawLift extends Subsystem {
 	private Talon crawMotor;
 	
 	public CrawLift() {
+		super("Craw Lift");
 		limitSwitchBottom = new DigitalInput(RobotMap.DIG_IN_CHANNEL1);
 		limitSwitchTop = new DigitalInput(RobotMap.DIG_IN_CHANNEL2);
 		crawMotor = new Talon(RobotMap.CRAW_MOTOR);
 	}
 	
+	public void init() 
+	{
+		
+	}
 	
 	protected void initDefaultCommand()
 	{
@@ -48,5 +53,10 @@ public class CrawLift extends Subsystem {
 		{
 			crawMotor.set(0.00);
 		}
+	}
+	
+	public void end()
+	{
+		
 	}
 }
