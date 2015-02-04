@@ -52,6 +52,8 @@ public class Robot extends IterativeRobot {
 		grabImage = new Vision();
 		driver = new DriveTrain();
 		compressor = new CompressorA();
+		fork = new Forklift();
+		roller = new Rollers();
 		OI.initialize();
 		
     }
