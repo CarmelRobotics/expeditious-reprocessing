@@ -7,7 +7,6 @@ import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
 import org.usfirst.frc.team2035.robot.commands.TestSolenoidOn;
-import org.usfirst.frc.team2035.robot.commands.TestSolenoidOff;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -60,8 +59,7 @@ public class OI {
 	    rollerOut.whenPressed(new RollerOutIn());
 	    rollerMotorIn.whileHeld(new RollerMotorOut());
 	    //rollerMotorOut.whenPressed(new RollerMotorIn());
-	    solenoid.whileHeld(new TestSolenoidOn());
-	    solenoid2.whileHeld(new TestSolenoidOff());
+	    solenoid.whenPressed(new TestSolenoidOn());
 	    
 	}
 }

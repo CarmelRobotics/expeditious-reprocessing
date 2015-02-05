@@ -46,6 +46,8 @@ public class TestSolenoidOn extends CommandBase {
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
+		sol1.set(false);
+		System.out.println("Solenoid Off");
 
 	}
 

@@ -23,8 +23,8 @@ public class RobotMap {
     public static final int F_RIGHT_MOTOR_PWM = 2; // Front Right drive motor is wired to PWM out 2
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
-    public static final int RIGHT_ROLLER_MOTOR = 5;
-    public static final int LEFT_ROLLER_MOTOR = 6;
+    public static final int RIGHT_ROLLER_MOTOR = 5;//5
+    public static final int LEFT_ROLLER_MOTOR = 6;//6
     public static final int CRAW_MOTOR = 7;
     
     public static final int LEFT_ROLLER_PISTON = 0;
