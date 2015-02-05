@@ -19,7 +19,7 @@ public abstract class ShiftLowGear extends CommandBase {
     private final DriveTrain train;
 
     public ShiftLowGear() {
-    	super("ShiftLowGear");
+    	super("StandardDrive");
     	train = Robot.getDriveTrain();
     	requires(train);
     }

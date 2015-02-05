@@ -48,7 +48,7 @@ public class OI {
 	public static void initialize()
 	{
 		shiftGear = RobotMap.BUTTON_SHIFT_GEAR;
-		shiftGear.whileHeld(new ShiftLowGear());
+		//shiftGear.whileHeld(new ShiftLowGear());
 		
 		rollerIn = RobotMap.BUTTON_ROLLER_EXTEND;
 	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
