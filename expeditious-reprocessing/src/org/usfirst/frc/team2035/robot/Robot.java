@@ -49,19 +49,19 @@ public class Robot extends IterativeRobot{
 	private static Forklift fork;
 	private static Rollers roller;
 
-	//private static ProcessImage imageProcess;
+	private static ProcessImage imageProcess;
 	private static Compressor compressor;
 	private static Vision grabImage;
-//	private Autonomous autonomous;
+	//private Autonomous autonomous;
+	//private static YellowToteTracker trackIt;
 
     Command autonomousCommand;
     
     public Robot()
     {
     	driver = new DriveTrain();
-    	//imageProcess = new ProcessImage();
+    	imageProcess = new ProcessImage();
         grabImage = new Vision();
-    	
     }
 
     /**
@@ -70,11 +70,12 @@ public class Robot extends IterativeRobot{
      */
     public void robotInit() {
 		oi = new OI();
+		//trackIt = new YellowToteTracker();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
         
         grabImage.visionInit();
-        //imageProcess.initProcessImage();
+        imageProcess.initProcessImage();
     }
 	
 	public void disabledPeriodic() {
@@ -92,6 +93,8 @@ public class Robot extends IterativeRobot{
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println("Auton Loop is running");
+        //trackIt.processImage();
+        
     }
 
     public void teleopInit() {
@@ -119,7 +122,7 @@ public class Robot extends IterativeRobot{
         
         grabImage.saveImage();
         //Timer.delay(K_UPDATE_PERIOD);
-        //imageProcess.processImage();
+        imageProcess.processImage();
         
     	System.out.println("Teleop Loop is running");
     	//Timer.delay(K_UPDATE_PERIOD);
