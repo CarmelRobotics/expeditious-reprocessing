@@ -13,34 +13,34 @@ import org.usfirst.frc.team2035.robot.Robot;
  *
  * @author Team 2035
  */
-public class ShiftLowGear extends CommandBase {
+public class ShiftHighGear extends CommandBase {
 
 
     private final DriveTrain train;
 
-    public ShiftLowGear() {
+    public ShiftHighGear() {
     	super("StandardDrive");
     	train = Robot.getDriveTrain();
     	requires(train);
     }
     
     protected void initialize() {
-    	train.shiftLowGear();
+    	train.shiftHighGear();
     }
     
     protected void execute() {
-    	train.shiftLowGear();
+    	train.shiftHighGear();
     }
     
     protected boolean isFinished() {
-    	return false;
+    	return true;
     }
     protected void end() {
-    	train.shiftHighGear();
+    	train.shiftLowGear();
     }
     
     protected void interrupted() {
-    	train.shiftHighGear();
+    	train.shiftLowGear();
     }
 
 }
