@@ -68,6 +68,6 @@ public class DriveTrain extends Subsystem{
     }
     
     public void rotate(double rot) {
-    	drive.drive(0, rot);
+    	drive.drive(0.3, rot);
     }
 }

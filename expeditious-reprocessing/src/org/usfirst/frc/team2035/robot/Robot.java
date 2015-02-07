@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
-//import org.usfirst.frc.team2035.robot.commands.Autonomous;
+import org.usfirst.frc.team2035.robot.commands.WinAutonomous;
 
 
 
@@ -49,19 +49,14 @@ public class Robot extends IterativeRobot{
 	private static Forklift fork;
 	private static Rollers roller;
 
-	private static ProcessImage imageProcess;
 	private static Compressor compressor;
-	private static Vision grabImage;
-	//private Autonomous autonomous;
-	//private static YellowToteTracker trackIt;
-
+	private WinAutonomous winAutonomous;
+	
     Command autonomousCommand;
     
     public Robot()
     {
     	driver = new DriveTrain();
-    	imageProcess = new ProcessImage();
-        grabImage = new Vision();
     }
 
     /**
@@ -70,12 +65,11 @@ public class Robot extends IterativeRobot{
      */
     public void robotInit() {
 		oi = new OI();
-		//trackIt = new YellowToteTracker();
+		winAutonomous = new WinAutonomous();
+		winAutonomous.initialize();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
         
-        grabImage.visionInit();
-        imageProcess.initProcessImage();
     }
 	
 	public void disabledPeriodic() {
@@ -93,7 +87,7 @@ public class Robot extends IterativeRobot{
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println("Auton Loop is running");
-        //trackIt.processImage();
+        winAutonomous.execute();
         
     }
 
@@ -120,9 +114,7 @@ public class Robot extends IterativeRobot{
         Scheduler.getInstance().run();
         driver.arcadeDrive();
         
-        grabImage.saveImage();
         //Timer.delay(K_UPDATE_PERIOD);
-        imageProcess.processImage();
         
     	System.out.println("Teleop Loop is running");
     	//Timer.delay(K_UPDATE_PERIOD);
@@ -146,11 +138,7 @@ public class Robot extends IterativeRobot{
     public static Rollers getRollers()
     {
     	return roller;
-    }
-    //public static ProcessImage  getVision()
-    //{
-    	//return imageProcess;
-    //}    
+    }  
     
  }
 

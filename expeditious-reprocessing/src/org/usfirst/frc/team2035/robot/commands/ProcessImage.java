@@ -54,9 +54,9 @@ public class ProcessImage {
 	int imaqError;
 
 	//Constants
-	NIVision.Range TOTE_HUE_RANGE = new NIVision.Range(24, 49);	//Default hue range for yellow tote
-	NIVision.Range TOTE_SAT_RANGE = new NIVision.Range(67, 255);	//Default saturation range for yellow tote
-	NIVision.Range TOTE_VAL_RANGE = new NIVision.Range(49, 255);	//Default value range for yellow tote
+	NIVision.Range TOTE_HUE_RANGE = new NIVision.Range(24, 49);	//Default hue range for yellow tote 	ORIGINAL: 24, 49
+	NIVision.Range TOTE_SAT_RANGE = new NIVision.Range(110, 255);	//Default saturation range for yellow tote	ORIGINAL: 67, 255
+	NIVision.Range TOTE_VAL_RANGE = new NIVision.Range(49, 255);	//Default value range for yellow tote	ORIGINAL: 49, 255
 	double AREA_MINIMUM = 0.5; //Default Area minimum for particle as a percentage of total image area
 	double LONG_RATIO = 2.22; //Tote long side = 26.9 / Tote height = 12.1 = 2.22
 	double SHORT_RATIO = 1.4; //Tote short side = 16.9 / Tote height = 12.1 = 1.4
@@ -168,6 +168,10 @@ public class ProcessImage {
 	public boolean foundTote()
 	{
 		return toots;
+	}
+	public void setTote(boolean toot)
+	{
+		this.toots = toot;
 	}
 	public void update()
 	{
