@@ -36,6 +36,7 @@ public class Robot extends IterativeRobot {
 	private static Vision grabImage;
 	private Autonomous autonomous;
     private Command autonomousCommand;
+    //private static YellowToteTracker trackIt;
     
     //public Robot()
     //{
@@ -54,6 +55,7 @@ public class Robot extends IterativeRobot {
 		compressor = new CompressorA();
 		fork = new Forklift();
 		roller = new Rollers();
+		//trackIt = new YellowToteTracker();
 		OI.initialize();
 		
     }
@@ -74,6 +76,7 @@ public class Robot extends IterativeRobot {
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println("Auton Loop Running");
+        //trackIt.processImage();
     }
 
     public void teleopInit() {
@@ -115,6 +118,7 @@ public class Robot extends IterativeRobot {
         //if(RobotMap.camCounter % 100 == 0)
         //{	
         	//grabImage.save();
+        	//imageProcess.processImage();
         	//System.out.println("Saving image");
         //}
         //RobotMap.camCounter++;
@@ -149,6 +153,11 @@ public class Robot extends IterativeRobot {
     {
     	return roller;
     }
+    
+    //public static ProcessImage  getVision()
+    //{
+    	//return imageProcess;
+    //} 
     
     
  }

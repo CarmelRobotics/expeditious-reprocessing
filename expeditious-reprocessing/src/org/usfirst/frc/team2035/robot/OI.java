@@ -7,7 +7,7 @@ import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
 import org.usfirst.frc.team2035.robot.commands.TestSolenoidOn;
-
+import org.usfirst.frc.team2035.robot.commands.ShiftLowGear;
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -45,9 +45,12 @@ public class OI {
 	private static Button rollerMotorOut;
 	private static Button solenoid;
 	private static Button solenoid2;
+	private static Button shiftGear;
 	
 	public static void initialize()
 	{
+		shiftGear = RobotMap.BUTTON_SHIFT_GEAR;
+		shiftGear.whileHeld(new ShiftLowGear());
 		rollerIn = RobotMap.BUTTON_ROLLER_EXTEND;
 	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
 	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
