@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-public class ProcessImage {
+public class ImageProcess {
 	CameraServer server;
 	int session;
 	boolean toots = false;

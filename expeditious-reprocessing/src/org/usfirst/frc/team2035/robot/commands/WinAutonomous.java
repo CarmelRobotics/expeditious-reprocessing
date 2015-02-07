@@ -1,18 +1,14 @@
-
 package org.usfirst.frc.team2035.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
+import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
-import org.usfirst.frc.team2035.robot.*;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
-import org.usfirst.frc.team2035.robot.commands.Vision;
-import org.usfirst.frc.team2035.robot.commands.ProcessImage;
+
+import edu.wpi.first.wpilibj.Timer;
 
 
 public class WinAutonomous extends CommandBase {
-	
-	//IMPORTANT! CODE IS NOT FULLY DEVELOPED! UPDATE PERIODICALLY
-	
 	
 	private final DriveTrain DRIVE;
 	private final Forklift LIFT;
@@ -21,7 +17,7 @@ public class WinAutonomous extends CommandBase {
 	private final double MOTOR_OFF_SPEED = 0.0;
 	private double storedTime;
 	private Vision vision;
-	private ProcessImage process;
+	private ImageProcess process;
 	private double lowTime = .1;
 	private double highTime = 1.1;
 	
@@ -30,7 +26,7 @@ public class WinAutonomous extends CommandBase {
 		DRIVE = Robot.getDriveTrain();
 		LIFT = Robot.getForklift();
 		vision = new Vision();
-		process = new ProcessImage();
+		process = new ImageProcess();
 	}
 	
 	
