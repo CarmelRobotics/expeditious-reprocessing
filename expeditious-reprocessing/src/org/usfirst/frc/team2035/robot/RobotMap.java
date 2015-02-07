@@ -25,7 +25,6 @@ public class RobotMap {
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
     public static final int RIGHT_ROLLER_MOTOR = 5;//5
     public static final int LEFT_ROLLER_MOTOR = 6;//6
-    public static final int CRAW_MOTOR = 7;
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
@@ -53,12 +52,12 @@ public class RobotMap {
     public static final int JOYSTICK_USB_NUMBER = 0;
     public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
-    public static final boolean LowGearSolenoidValue = false;
+    public static final boolean LOW_GEAR_SOLENOID_VALUE = false;
     /*
      * SOLENOID RELAY CARTRIDGE NUMBERING
      */
-    public static final int DriveTrainHighGear = 1; //Drive Train High Gear Solenoid set to Relay cartridge 1
-    public static final int DriveTrainLowGear = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
+    public static final int DRIVE_TRAIN_HIGH_GEAR = 1; //Drive Train High Gear Solenoid set to Relay cartridge 1
+    public static final int DRIVE_TRAIN_LOW_GEAR = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
     
     
     public static final int DIG_IN_CHANNEL1 = 1;
@@ -86,6 +85,7 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
     public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
     public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
+    public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);
     
     
     

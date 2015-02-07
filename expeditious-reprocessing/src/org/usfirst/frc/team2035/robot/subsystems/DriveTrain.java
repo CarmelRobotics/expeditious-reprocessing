@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.commands.StandardDrive;
 
-public class DriveTrain extends Subsystem{
+public class DriveTrain extends ExpeditiousSubsystem{
 	
 	private static Joystick stick;
     private SpeedController motorFrontLeft;
@@ -32,8 +32,13 @@ public class DriveTrain extends Subsystem{
         motorBackRight = new Talon(RobotMap.B_RIGHT_MOTOR_PWM);
         stick = new Joystick(RobotMap.JOYSTICK1);	// initialize the joystick on USB 0
         drive = new RobotDrive(motorFrontLeft,motorBackLeft,motorFrontRight,motorBackRight);
-        GearShiftSolUp = new Solenoid(RobotMap.DriveTrainHighGear);
-        GearShiftSolDown = new Solenoid(RobotMap.DriveTrainLowGear);
+        GearShiftSolUp = new Solenoid(RobotMap.DRIVE_TRAIN_HIGH_GEAR);
+        GearShiftSolDown = new Solenoid(RobotMap.DRIVE_TRAIN_LOW_GEAR);
+    }
+    
+    public void init()
+    {
+    	
     }
     
     protected void initDefaultCommand()
@@ -51,8 +56,8 @@ public class DriveTrain extends Subsystem{
    
     public void shiftLowGear()
     {
-    	GearShiftSolUp.set(!RobotMap.LowGearSolenoidValue);
-    	GearShiftSolDown.set(RobotMap.LowGearSolenoidValue);
+    	GearShiftSolUp.set(!RobotMap.LOW_GEAR_SOLENOID_VALUE);
+    	GearShiftSolDown.set(RobotMap.LOW_GEAR_SOLENOID_VALUE);
     	GearShiftSolUp.set(false);
     	GearShiftSolDown.set(true);
     	System.out.println("Gotta Go LOW");
@@ -60,8 +65,8 @@ public class DriveTrain extends Subsystem{
     
     public void shiftHighGear()
     {
-    	GearShiftSolUp.set(!RobotMap.LowGearSolenoidValue);
-    	GearShiftSolDown.set(RobotMap.LowGearSolenoidValue);
+    	GearShiftSolUp.set(!RobotMap.LOW_GEAR_SOLENOID_VALUE);
+    	GearShiftSolDown.set(RobotMap.LOW_GEAR_SOLENOID_VALUE);
     	GearShiftSolUp.set(true);
     	GearShiftSolDown.set(false);
     	System.out.println("Gotta Go HIGH");
@@ -70,4 +75,9 @@ public class DriveTrain extends Subsystem{
     public void rotate(double rot) {
     	drive.drive(0, rot);
     }
+    
+    public void end()
+    {
+    }
+    
 }
