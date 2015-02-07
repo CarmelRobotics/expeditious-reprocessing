@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 
 //why is this "Subsystem" underlined?
-public class Forklift extends Subsystem {
+public class Forklift extends ExpeditiousSubsystem {
 
 	private final Talon chainmotor;
 	DigitalInput highLimit;
@@ -16,11 +16,18 @@ public class Forklift extends Subsystem {
 	private boolean oneThrough = false;
 	
 	public Forklift() {
+		super("Fork Lift");
 		chainmotor = new Talon(RobotMap.CHAIN_MOTOR_PWM); // make sure to make this in robot map
 		highLimit = new DigitalInput(RobotMap.HIGH_LIMIT_SWITCH);
 		lowLimit = new DigitalInput(RobotMap.LOW_LIMIT_SWITCH);
 		liftTime = new Timer();
 	}
+	
+	
+	public void init() {
+		
+	}
+	
 	public void initDefaultCommand() {
 		 
 	        // Set the default command for a subsystem here.
@@ -64,6 +71,10 @@ public class Forklift extends Subsystem {
 	public void setOneThrough(boolean b)
 	{
 		oneThrough = b;
+	}
+	
+	public void end() {
+		
 	}
 	
 	

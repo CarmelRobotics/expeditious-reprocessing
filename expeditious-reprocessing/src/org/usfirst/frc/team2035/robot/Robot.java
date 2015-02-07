@@ -1,5 +1,9 @@
-
 package org.usfirst.frc.team2035.robot;
+
+import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team2035.robot.subsystems.Forklift;
+import org.usfirst.frc.team2035.robot.subsystems.Rollers;
+import org.usfirst.frc.team2035.robot.subsystems.Vision;
 
 import edu.wpi.first.wpilibj.IterativeRobot;  
 import edu.wpi.first.wpilibj.command.Command;
@@ -8,6 +12,8 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import org.usfirst.frc.team2035.robot.commands.WinAutonomous;
+
+
 
 
 
@@ -43,16 +49,14 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class Robot extends IterativeRobot{
 
-	public static OI oi;
 	private final double K_UPDATE_PERIOD = 0.005; // update every 0.005 seconds/5 milliseconds (200Hz)
 	private static DriveTrain driver;
 	private static Forklift fork;
 	private static Rollers roller;
 
-	private static Compressor compressor;
-	private WinAutonomous winAutonomous;
-	
-    Command autonomousCommand;
+	private static CompressorA compressor;
+	private WinAutonomous winAutonomous;	
+    Command autonomousCommand;;
     
     public Robot()
     {
@@ -64,20 +68,26 @@ public class Robot extends IterativeRobot{
      * used for any initialization code.
      */
     public void robotInit() {
-		oi = new OI();
+		OI oi = new OI();
 		winAutonomous = new WinAutonomous();
 		winAutonomous.initialize();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-        
+		driver = new DriveTrain();
+		compressor = new CompressorA();
+		fork = new Forklift();
+		roller = new Rollers();
+		OI.initialize();
+		
     }
 	
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		
 	}
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
+        //schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
@@ -88,7 +98,6 @@ public class Robot extends IterativeRobot{
         Scheduler.getInstance().run();
         System.out.println("Auton Loop is running");
         winAutonomous.execute();
-        
     }
 
     public void teleopInit() {
@@ -97,6 +106,12 @@ public class Robot extends IterativeRobot{
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
+        
+        //grabImage.init();
+        RobotMap.camCounter = 0;
+        //oi.initialize();
+          
+        
     }
 
     /**
@@ -104,28 +119,46 @@ public class Robot extends IterativeRobot{
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-
+    	
+    	//grabImage.end();
+    	
+    	
     }
 
     /**
      * This function is called periodically during operator control
      */
+    
+    
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
         driver.arcadeDrive();
         
         //Timer.delay(K_UPDATE_PERIOD);
-        
     	System.out.println("Teleop Loop is running");
     	//Timer.delay(K_UPDATE_PERIOD);
+        //if(RobotMap.camCounter % 100 == 0)
+        //{	
+        	//grabImage.save();
+        	//System.out.println("Saving image");
+        //}
+        //RobotMap.camCounter++;
+        
+    	System.out.println("Teleop Loop is running");
+        Timer.delay(K_UPDATE_PERIOD);
+        
+        compressor.start();
+        
     }
     
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+    	LiveWindow.run();
     }
+    
     
     public static DriveTrain getDriveTrain() {
     	return driver;

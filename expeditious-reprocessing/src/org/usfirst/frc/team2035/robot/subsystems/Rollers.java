@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Victor;
 import org.usfirst.frc.team2035.robot.RobotMap;
 
-public class Rollers extends Subsystem {
+public class Rollers extends ExpeditiousSubsystem {
 
 	private final Solenoid 	leftPiston;
 	private final Solenoid rightPiston;
@@ -15,18 +15,24 @@ public class Rollers extends Subsystem {
 	
 	public Rollers()
 	{
+		super("Rollers");
 		rightMotor = new Victor(RobotMap.RIGHT_ROLLER_MOTOR);
 		leftMotor = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
 		leftPiston = new Solenoid(RobotMap.LEFT_ROLLER_PISTON);
 		rightPiston = new Solenoid(RobotMap.RIGHT_ROLLER_PISTON);
 	}
 	
-	 public void initDefaultCommand() {
+	public void init()
+	{
+		
+	}
+	
+	public void initDefaultCommand() {
 	        // Set the default command for a subsystem here.
 	        //setDefaultCommand(new MySpecialCommand());
 	    }
 	 
-	 public void rollerOutIn()
+	public void rollerOutIn()
 	 {
 		 if (out == false)
 		{
@@ -59,6 +65,11 @@ public class Rollers extends Subsystem {
 	 {
 		 rightMotor.set(0.0);
 		 leftMotor.set(0.0);
+	 }
+	 
+	 public void end()
+	 {
+		 
 	 }
 	
 }

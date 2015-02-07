@@ -23,9 +23,8 @@ public class RobotMap {
     public static final int F_RIGHT_MOTOR_PWM = 2; // Front Right drive motor is wired to PWM out 2
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
-    public static final int RIGHT_ROLLER_MOTOR = 5;
-    public static final int LEFT_ROLLER_MOTOR = 6;
-    //public static final int CRAW_MOTOR = 7;
+    public static final int RIGHT_ROLLER_MOTOR = 5;//5
+    public static final int LEFT_ROLLER_MOTOR = 6;//6
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
@@ -35,7 +34,7 @@ public class RobotMap {
     /*
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
      */
-    public static final int PRESSURE_SWITCH_DIG_IN = 14;
+    public static final int PCM_ID = 1;
     public static final int HIGH_LIMIT_SWITCH = 1;
     public static final int LOW_LIMIT_SWITCH = 2;
     
@@ -75,12 +74,30 @@ public class RobotMap {
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
     public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
-    //public static final double CRAW_SPEED_UP = 0.40;
-    //public static final double CRAW_SPEED_DOWN = -0.40;
+
     
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);
     public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
+    public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
+    public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
+    
+    
+    
+    /*
+     * Camera
+     */
+    
+    public static final String CAM_ID = "cam1";
+    
+    public static int camCounter = 0;
+    public static final int IMAGE_QUALITY = 100;
+    public static final int SAVE_IMAGE_QUALITY = 100;
+    
+    public static final String IMAGE_PATH = "/images/test.jpg";
 }
+
+
+

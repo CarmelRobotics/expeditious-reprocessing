@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.commands.StandardDrive;
 
-public class DriveTrain extends Subsystem{
+public class DriveTrain extends ExpeditiousSubsystem {
 	
 	private static Joystick stick;
     private SpeedController motorFrontLeft;
@@ -26,7 +26,7 @@ public class DriveTrain extends Subsystem{
     public DriveTrain() {
     	super("Drive Train");
     	
-        motorFrontLeft = new Talon(RobotMap.F_LEFT_MOTOR_PWM); // initialize the motor as a Talon on channel 0
+    	motorFrontLeft = new Talon(RobotMap.F_LEFT_MOTOR_PWM); // initialize the motor as a Talon on channel 0
         motorBackLeft = new Talon(RobotMap.B_LEFT_MOTOR_PWM);
         motorFrontRight = new Talon(RobotMap.F_RIGHT_MOTOR_PWM);
         motorBackRight = new Talon(RobotMap.B_RIGHT_MOTOR_PWM);
@@ -34,6 +34,11 @@ public class DriveTrain extends Subsystem{
         drive = new RobotDrive(motorFrontLeft,motorBackLeft,motorFrontRight,motorBackRight);
         GearShiftSolUp = new Solenoid(RobotMap.DriveTrainHighGear);
         GearShiftSolDown = new Solenoid(RobotMap.DriveTrainLowGear);
+    }
+    
+    public void init()
+    {
+    	
     }
     
     protected void initDefaultCommand()
@@ -69,5 +74,9 @@ public class DriveTrain extends Subsystem{
     
     public void rotate(double rot) {
     	drive.drive(0.3, rot);
+    }
+    public void end()
+    {
+    	
     }
 }
