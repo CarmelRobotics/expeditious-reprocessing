@@ -32,7 +32,6 @@ public class Robot extends IterativeRobot {
 	private static Forklift fork;
 	private static Rollers roller;
 	private static CompressorA compressor;
-	
 	private static Vision grabImage;
 	private Autonomous autonomous;
     private Command autonomousCommand;
@@ -153,6 +152,7 @@ public class Robot extends IterativeRobot {
     {
     	return roller;
     }
+    
     
     //public static ProcessImage  getVision()
     //{
