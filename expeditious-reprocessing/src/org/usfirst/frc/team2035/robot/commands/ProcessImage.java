@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class ProcessImage {
 	CameraServer server;
 	int session;
+	boolean toots = false;
 	
 	public class ParticleReport implements Comparator<ParticleReport>, Comparable<ParticleReport>
 	{
@@ -156,12 +157,18 @@ public class ProcessImage {
 		//Send distance and tote status to dashboard. The bounding rect, particularly the horizontal center (left - right) may be useful for rotating/driving towards a tote
 		SmartDashboard.putBoolean("IsTote", isTote);
 		SmartDashboard.putNumber("Distance", computeDistance(binaryFrame, particles.elementAt(0), isLong));
+		toots = true;
 	} 
 	else 
 	{
 		SmartDashboard.putBoolean("IsTote", false);
+		toots = false;
 	}
 }
+	public boolean foundTote()
+	{
+		return toots;
+	}
 	public void update()
 	{
 		Timer.delay(0.005);
