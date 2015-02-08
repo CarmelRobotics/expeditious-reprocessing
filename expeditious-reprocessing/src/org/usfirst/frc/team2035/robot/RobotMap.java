@@ -82,6 +82,7 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
+    public static final JoystickButton BUTTON_FORK_LIFT = new JoystickButton(DRIVER_JOYSTICK, 4);
     public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
     public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);

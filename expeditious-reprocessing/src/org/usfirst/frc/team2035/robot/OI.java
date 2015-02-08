@@ -1,7 +1,8 @@
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.Button; 
 import org.usfirst.frc.team2035.robot.RobotMap;
+import org.usfirst.frc.team2035.robot.commands.*;
 import org.usfirst.frc.team2035.robot.commands.RollerIn;
 import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
 import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
@@ -46,6 +47,7 @@ public class OI {
 	private static Button solenoid;
 	private static Button solenoid2;
 	private static Button shiftGear;
+	private static Button lift;
 	
 	public static void initialize()
 	{
@@ -57,12 +59,14 @@ public class OI {
 	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
 	    solenoid = RobotMap.BUTTON_SOLENOID;
 	    solenoid2 = RobotMap.BUTTON_SOLENOID2;
+	    lift = RobotMap.BUTTON_FORK_LIFT;
 	    
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOutIn());
 	    rollerMotorIn.whileHeld(new RollerMotorOut());
 	    //rollerMotorOut.whenPressed(new RollerMotorIn());
 	    solenoid.whenPressed(new TestSolenoidOn());
+	    //lift.whenPressed(new LiftForklift());
 	    
 	}
 }

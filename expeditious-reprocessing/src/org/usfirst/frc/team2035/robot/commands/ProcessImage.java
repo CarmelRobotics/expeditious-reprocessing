@@ -137,7 +137,7 @@ public class ProcessImage {
 			par.BoundingRectRight = NIVision.imaqMeasureParticle(binaryFrame, particleIndex, 0, NIVision.MeasurementType.MT_BOUNDING_RECT_RIGHT);
 			particles.add(par);
 		}
-		particles.sort(null);
+//		particles.sort(null);
 
 		//This example only scores the largest particle. Extending to score all particles and choosing the desired one is left as an exercise
 		//for the reader. Note that the long and short side scores expect a single tote and will not work for a stack of 2 or more totes.
