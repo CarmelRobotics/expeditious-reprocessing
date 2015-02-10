@@ -73,7 +73,6 @@ public class Robot extends IterativeRobot{
 		winAutonomous.initialize();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-		driver = new DriveTrain();
 		compressor = new CompressorA();
 		fork = new Forklift();
 		roller = new Rollers();
