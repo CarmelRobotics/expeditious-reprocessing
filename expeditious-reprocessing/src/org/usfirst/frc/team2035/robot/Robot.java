@@ -4,6 +4,8 @@ import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 import org.usfirst.frc.team2035.robot.subsystems.Vision;
+import org.usfirst.frc.team2035.robot.OI;
+import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 
 import edu.wpi.first.wpilibj.IterativeRobot; 
 import edu.wpi.first.wpilibj.command.Command;
@@ -35,6 +37,8 @@ public class Robot extends IterativeRobot {
 	private static Vision grabImage;
 	private Autonomous autonomous;
     private Command autonomousCommand;
+    private MaxbotixUltrasonic distanceSensor;
+    private OI oi;
     //private static YellowToteTracker trackIt;
     
     //public Robot()
@@ -49,11 +53,13 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
+    	oi = new OI();
 		grabImage = new Vision();
 		driver = new DriveTrain();
 		compressor = new CompressorA();
 		fork = new Forklift();
 		roller = new Rollers();
+		distanceSensor = new MaxbotixUltrasonic(RobotMap.DISTANCE_CHANNEL);
 		//trackIt = new YellowToteTracker();
 		OI.initialize();
 		
@@ -122,12 +128,12 @@ public class Robot extends IterativeRobot {
         //}
         //RobotMap.camCounter++;
         
-    	System.out.println("Teleop Loop is running");
+    	//System.out.println("Teleop Loop is running");
         Timer.delay(K_UPDATE_PERIOD);
         
         compressor.start();
         
-        
+        System.out.println(distanceSensor.getRangeInInches());
         
         
     }
