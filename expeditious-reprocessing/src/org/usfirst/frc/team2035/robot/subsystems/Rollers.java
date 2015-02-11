@@ -34,11 +34,11 @@ public class Rollers extends ExpeditiousSubsystem {
 	 
 	public void rollerOutIn()
 	 {
-		 if (out == false)
+		if (out == false)
 		{
-		leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
-		rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);
-		out = true;
+			leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
+			rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);
+			out = true;
 		}
 		else
 		{
@@ -47,8 +47,7 @@ public class Rollers extends ExpeditiousSubsystem {
 			out = false;
 		}
 	 }
-	 
-	
+	 	
 	 public void spinIn()
 	 {
 		 rightMotor.set(RobotMap.ROLLER_SPEED);

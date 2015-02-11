@@ -92,7 +92,7 @@ public class RobotMap {
      * Camera
      */
     
-    public static final int cameraSession = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
+    public static final int cameraSession = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
     //this may need to change to "cam1" depending if using test board or multiple cameras
 
     public static final Image frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);

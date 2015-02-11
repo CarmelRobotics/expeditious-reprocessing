@@ -36,7 +36,7 @@ public class Forklift extends ExpeditiousSubsystem {
 	
 	public void setliftforklift() {
 		
-		while ( highLimit.get() == false)
+		while (highLimit.get() == false)
 		{
 		chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
 		}
