@@ -25,7 +25,7 @@ public class RobotMap {
     public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
     public static final int RIGHT_ROLLER_MOTOR = 5;
     public static final int LEFT_ROLLER_MOTOR = 6;
-    public static final int CRAW_MOTOR = 7;
+    //public static final int CRAW_MOTOR = 7;
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
@@ -52,8 +52,13 @@ public class RobotMap {
     public static final int JOYSTICK_USB_NUMBER = 0;
     public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
-
-   
+    public static final boolean LowGearSolenoidValue = false;
+    /*
+     * SOLENOID RELAY CARTRIDGE NUMBERING
+     */
+    public static final int DriveTrainHighGear = 1; //Drive Train High Gear Solenoid set to Relay cartridge 1
+    public static final int DriveTrainLowGear = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
+    
 
     public static final int DIG_IN_CHANNEL1 = 1;
     public static final int DIG_IN_CHANNEL2 = 2;
@@ -70,9 +75,10 @@ public class RobotMap {
     public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
     public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
-    public static final double CRAW_SPEED_UP = 0.40;
-    public static final double CRAW_SPEED_DOWN = -0.40;
+    //public static final double CRAW_SPEED_UP = 0.40;
+    //public static final double CRAW_SPEED_DOWN = -0.40;
     
+    public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);
     public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);

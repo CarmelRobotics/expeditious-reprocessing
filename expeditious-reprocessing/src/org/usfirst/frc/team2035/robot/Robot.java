@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.Compressor;
 //import org.usfirst.frc.team2035.robot.commands.Autonomous;
 
 
+
+import org.usfirst.frc.team2035.robot.commands.*;
 import org.usfirst.frc.team2035.robot.subsystems.*;
 
 import edu.wpi.first.wpilibj.Timer;
@@ -21,6 +23,24 @@ import edu.wpi.first.wpilibj.Timer;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
+
+/**
+ * ORDER OF EXECUTION:
+ * robotInit() - called once after the boot up of the roboRIO.
+ * disabledInit() - called once, every time the robot is placed in disabled mode.
+ * disabledPeriodic() - called multiple times each second, during which the robot is in disabled mode.
+ * autonomousInit() - called once, every time the robot is placed in autonomous mode.
+ * autonomousPeriodic() - called multiple times each second, during which the robot is autonomously controlled.
+ * telopInit() - called once, every time the robot is placed in tele-operated mode.
+ * teleopPeriodic() - called multiple times each second, during which the robot is user controlled.
+ * 
+ * On the competition field, the order of modes is:
+ * disabled (while the field is getting ready)
+ * autonomous (15 seconds duration)
+ * disabled (briefly)
+ * teleop (2 minute duration)
+ * disabled (until the robot is powered off)
+ */
 public class Robot extends IterativeRobot{
 
 	public static OI oi;
@@ -29,21 +49,21 @@ public class Robot extends IterativeRobot{
 	private static Forklift fork;
 	private static Rollers roller;
 
-	//private static ProcessImage imageProcess;
+	private static ProcessImage imageProcess;
 	private static Compressor compressor;
 	private static Vision grabImage;
-//	private Autonomous autonomous;
+	//	private Autonomous autonomous;
 	//private static CameraFeeds camera;
+	//private static YellowToteTracker trackIt;
 
     Command autonomousCommand;
     
     public Robot()
     {
     	driver = new DriveTrain();
-    	//imageProcess = new ProcessImage();
+    	imageProcess = new ProcessImage();
         grabImage = new Vision();
         //camera = new CameraFeeds();
-    	
     }
 
     /**
@@ -52,11 +72,10 @@ public class Robot extends IterativeRobot{
      */
     public void robotInit() {
 		oi = new OI();
+		//trackIt = new YellowToteTracker();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-        
         //grabImage.visionInit();
-        
         //imageProcess.initProcessImage();
     }
 	
@@ -75,6 +94,8 @@ public class Robot extends IterativeRobot{
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println("Auton Loop is running");
+        //trackIt.processImage();
+        
     }
 
     public void teleopInit() {
@@ -83,7 +104,7 @@ public class Robot extends IterativeRobot{
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        grabImage.VisionLiveFeed();
+        //grabImage.VisionLiveFeed();
         
     }
 
@@ -92,7 +113,7 @@ public class Robot extends IterativeRobot{
      * You can use it to reset subsystems before shutting down.
      */
     public void disabledInit(){
-    	grabImage.end();
+    	//grabImage.end();
     }
 
     /**
@@ -101,7 +122,7 @@ public class Robot extends IterativeRobot{
     public void teleopPeriodic() {
         //Scheduler.getInstance().run();
         driver.arcadeDrive();
-        grabImage.liveStream();
+        //grabImage.liveStream();
         
         //grabImage.saveImage();
         //Timer.delay(K_UPDATE_PERIOD);
