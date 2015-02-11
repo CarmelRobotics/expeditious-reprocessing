@@ -1,6 +1,9 @@
 
 package org.usfirst.frc.team2035.robot;
 
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 /**
@@ -85,14 +88,14 @@ public class RobotMap {
     public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
     public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
     
-    
-    
     /*
      * Camera
      */
     
-    public static final String CAM_ID = "cam1";
-    
+    public static final int cameraSession = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
+    //this may need to change to "cam1" depending if using test board or multiple cameras
+
+    public static final Image frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
     public static int camCounter = 0;
     public static final int IMAGE_QUALITY = 100;
     public static final int SAVE_IMAGE_QUALITY = 100;

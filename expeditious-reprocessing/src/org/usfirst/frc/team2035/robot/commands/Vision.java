@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2035.robot.commands;
 
+import org.usfirst.frc.team2035.robot.RobotMap;
+
 import com.ni.vision.NIVision; 
 import com.ni.vision.NIVision.DrawMode;
 import com.ni.vision.NIVision.Image;
@@ -25,11 +27,9 @@ public class Vision {
 
     public void visionInit()
     {
-        frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-
+        frame = RobotMap.frame;
         // the camera name (ex "cam0") can be found through the roborio web interface
-        session = NIVision.IMAQdxOpenCamera("cam0",
-                NIVision.IMAQdxCameraControlMode.CameraControlModeController);
+        session = RobotMap.cameraSession;
         NIVision.IMAQdxConfigureGrab(session);
         
         colorTable = new NIVision.RawData();
