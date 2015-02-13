@@ -10,6 +10,7 @@ public class TiltInOut extends CommandBase{
 	public TiltInOut() {
 		super("Tilt InOut");
 		tilter = Robot.getForklift();
+		requires(tilter);
 	}
 
 	@Override

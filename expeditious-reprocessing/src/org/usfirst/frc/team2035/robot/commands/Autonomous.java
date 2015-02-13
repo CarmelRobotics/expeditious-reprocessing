@@ -6,6 +6,7 @@ import org.usfirst.frc.team2035.robot.*;
 import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.RobotMap;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
+import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 
 
 public class Autonomous extends CommandBase {
@@ -15,6 +16,7 @@ public class Autonomous extends CommandBase {
 	
 	private final DriveTrain DRIVE;
 	private final Forklift LIFT;
+	private final MaxbotixUltrasonic DISTANCE;
 	private Timer autonomousTimer;
 	private final double MOTOR_ON_SPEED = RobotMap.AUTONOMOUS_SPEED; //add AutonomousSpeed on Robot Map (recommended speed 40)
 	private final double MOTOR_OFF_SPEED = 0.0;
@@ -24,6 +26,8 @@ public class Autonomous extends CommandBase {
 		super("drive");
 		DRIVE = Robot.getDriveTrain();
 		LIFT = Robot.getForklift();
+		DISTANCE = Robot.getDistanceSensor();
+		
 	}
 	
 	

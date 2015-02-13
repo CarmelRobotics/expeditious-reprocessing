@@ -37,7 +37,7 @@ public class Robot extends IterativeRobot {
 	private static Vision grabImage;
 	private Autonomous autonomous;
     private Command autonomousCommand;
-    private MaxbotixUltrasonic distanceSensor;
+    private static MaxbotixUltrasonic distanceSensor;
     private OI oi;
     //private static YellowToteTracker trackIt;
     
@@ -159,6 +159,10 @@ public class Robot extends IterativeRobot {
     	return roller;
     }
     
+    public static MaxbotixUltrasonic getDistanceSensor()
+    {
+    	return distanceSensor;
+    }
     
     //public static ProcessImage  getVision()
     //{
