@@ -17,8 +17,9 @@ public class Forklift extends ExpeditiousSubsystem {
 	DigitalInput lowLimit;
 	private Timer liftTime;
 	private boolean oneThrough = false;
-	private Solenoid extendPiston;
-	private Solenoid retractPiston;
+	private Solenoid leftPiston;
+	private Solenoid rightPiston;
+	private boolean out;
 	
 	public Forklift() {
 		super("Fork Lift");
@@ -27,12 +28,15 @@ public class Forklift extends ExpeditiousSubsystem {
 		highLimit = new DigitalInput(RobotMap.HIGH_LIMIT_SWITCH);
 		lowLimit = new DigitalInput(RobotMap.LOW_LIMIT_SWITCH);
 		liftTime = new Timer();
+		out = false;
+		leftPiston = new Solenoid(1, RobotMap.EXTEND_SOLENOID_PCM);
+		rightPiston = new Solenoid(1, RobotMap.RETRACT_SOLENOID_PCM);
 	}
 	
 	
 	public void init() {
-		extendPiston = new Solenoid(1, RobotMap.EXTEND_SOLENOID_PCM);
-		retractPiston = new Solenoid(1, RobotMap.RETRACT_SOLENOID_PCM); 
+		//leftPiston = new Solenoid(1, RobotMap.EXTEND_SOLENOID_PCM); //I believe this should be in the constructor Dom
+		//rightPiston = new Solenoid(1, RobotMap.RETRACT_SOLENOID_PCM); //I believe this should be in the constructor Dom
 	}
 	
 	public void initDefaultCommand() {
@@ -82,16 +86,18 @@ public class Forklift extends ExpeditiousSubsystem {
 	//added by Abby: tilts the whole forklift system out
 	public void extendForklift()
 	{
-		extendPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
-        retractPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
+		if(!out)
+		{
+			leftPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
+			rightPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);//I believe these values should be the same, we want the soleoids to be in synch Dom
+		}
+		else if(out)
+		{
+			leftPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
+	        rightPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE); //I believe these values should be the same, we want the soleoids to be in synch Dom
+		}
 	}
 	
-	//added by Abby: tilts the whole forklift system in
-	public void retractForklift()
-	{
-		extendPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
-        retractPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
-	}
 	
 	public void setOneThrough(boolean b)
 	{

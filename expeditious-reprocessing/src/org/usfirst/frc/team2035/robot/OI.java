@@ -48,6 +48,7 @@ public class OI {
 	private static Button solenoid2;
 	private static Button shiftGear;
 	private static Button lift;
+	private static Button forkliftMove;
 	
 	public static void initialize()
 	{
@@ -60,6 +61,7 @@ public class OI {
 	    solenoid = RobotMap.BUTTON_SOLENOID;
 	    solenoid2 = RobotMap.BUTTON_SOLENOID2;
 	    lift = RobotMap.BUTTON_FORK_LIFT;
+	    forkliftMove = RobotMap.BUTTON_FORK_MOVE;
 	    
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOutIn());
@@ -67,6 +69,7 @@ public class OI {
 	    //rollerMotorOut.whenPressed(new RollerMotorIn());
 	    solenoid.whenPressed(new TestSolenoidOn());
 	    //lift.whenPressed(new LiftForklift());
+	    forkliftMove.whenPressed(new TiltInOut());
 	    
 	}
 }

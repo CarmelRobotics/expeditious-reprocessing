@@ -3,23 +3,25 @@ package org.usfirst.frc.team2035.robot.commands;
 import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
-public class TiltIn extends CommandBase {
+public class TiltInOut extends CommandBase{ 
 	
 	private Forklift tilter;
 
-	public TiltIn() {
-		super("Tilt In");
+	public TiltInOut() {
+		super("Tilt InOut");
 		tilter = Robot.getForklift();
 	}
 
 	@Override
 	protected void initialize() {
-		//tilter.retractForklift(); Commented out so as to stop errors with a nonexistent method in Forklift Dom
+		tilter.extendForklift();
+		
 	}
 
 	@Override
 	protected void execute() {
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -31,13 +33,13 @@ public class TiltIn extends CommandBase {
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

@@ -11,7 +11,7 @@ public class Rollers extends ExpeditiousSubsystem {
 	private final Solenoid rightPiston;
 	private final Victor rightMotor;
 	private final Victor leftMotor;
-	private boolean out = false;
+	private boolean out;
 	
 	public Rollers()
 	{
@@ -20,6 +20,7 @@ public class Rollers extends ExpeditiousSubsystem {
 		leftMotor = new Victor(RobotMap.LEFT_ROLLER_MOTOR);
 		leftPiston = new Solenoid(RobotMap.LEFT_ROLLER_PISTON);
 		rightPiston = new Solenoid(RobotMap.RIGHT_ROLLER_PISTON);
+		out = false;
 	}
 	
 	public void init()
@@ -34,7 +35,7 @@ public class Rollers extends ExpeditiousSubsystem {
 	 
 	public void rollerOutIn()
 	 {
-		 if (out == false)
+		if (out == false)
 		{
 		leftPiston.set(RobotMap.ROLLER_PISTON_VALUE);
 		rightPiston.set(RobotMap.ROLLER_PISTON_VALUE);

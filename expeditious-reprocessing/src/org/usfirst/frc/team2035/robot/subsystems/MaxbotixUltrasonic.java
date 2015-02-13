@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.subsystems;
 
-import edu.wpi.first.wpilibj.SensorBase;
+import edu.wpi.first.wpilibj.SensorBase; 
 
 import edu.wpi.first.wpilibj.AnalogInput;
 

@@ -86,7 +86,7 @@ public class RobotMap {
     public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
     public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);
-
+    public static final JoystickButton BUTTON_FORK_MOVE = new JoystickButton(DRIVER_JOYSTICK, 8);
     public static final boolean FORKLIFT_SOLENOID_VALUE = true;
     public static final int EXTEND_SOLENOID_PCM = 2;
     public static final int RETRACT_SOLENOID_PCM = 3;
