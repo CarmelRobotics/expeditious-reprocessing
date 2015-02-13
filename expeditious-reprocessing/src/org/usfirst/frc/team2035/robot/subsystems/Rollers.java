@@ -11,7 +11,7 @@ public class Rollers extends ExpeditiousSubsystem {
 	private final Solenoid rightPiston;
 	private final Victor rightMotor;
 	private final Victor leftMotor;
-	private boolean out = false;
+	private boolean out = false; //Rollers start turned inwards
 	
 	public Rollers()
 	{
@@ -69,6 +69,11 @@ public class Rollers extends ExpeditiousSubsystem {
 	 public void end()
 	 {
 		 
+	 }
+	 
+	 public boolean getOut()
+	 {
+		 return this.out;
 	 }
 	
 }
