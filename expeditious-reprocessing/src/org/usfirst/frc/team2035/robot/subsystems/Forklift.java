@@ -40,13 +40,14 @@ public class Forklift extends Subsystem {
 		while(oneThrough == false)
 		{
 			chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED);
+			if (liftTime.get() >= 5.0 )
+			{
+				oneThrough = true;
+				liftTime.stop();
+				liftTime.reset();
+			}
 		}
-		if (liftTime.get() >= 5.0 )
-		{
-			oneThrough = true;
-			liftTime.stop();
-			liftTime.reset();
-		}
+		
 		
 	}
 
