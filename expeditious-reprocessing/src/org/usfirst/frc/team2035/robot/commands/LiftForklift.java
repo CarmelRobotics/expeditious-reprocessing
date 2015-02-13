@@ -4,7 +4,7 @@ import org.usfirst.frc.team2035.robot.*;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import org.usfirst.frc.team2035.robot.Robot;
 
-public abstract class LiftForklift extends CommandBase {
+public class LiftForklift extends CommandBase {
 	private final Forklift forklift;
 	
 	public LiftForklift(){
