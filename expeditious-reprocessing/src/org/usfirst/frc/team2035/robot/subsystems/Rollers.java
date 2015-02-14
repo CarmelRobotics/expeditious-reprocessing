@@ -7,8 +7,10 @@ import org.usfirst.frc.team2035.robot.RobotMap;
 
 public class Rollers extends ExpeditiousSubsystem {
 
-	private final Solenoid 	airInSol;
-	private final Solenoid airOutSol;
+	private final Solenoid 	leftAirInSol;
+	private final Solenoid leftAirOutSol;
+	private final Solenoid 	rightAirInSol;
+	private final Solenoid rightAirOutSol;
 	private final Victor rightMotor;
 	private final Victor leftMotor;
 	private boolean out;
@@ -18,8 +20,10 @@ public class Rollers extends ExpeditiousSubsystem {
 		super("Rollers");
 		rightMotor = new Victor(RobotMap.R_ROLLER_MOTOR_PWM);
 		leftMotor = new Victor(RobotMap.L_ROLLER_MOTOR_PWM);
-		airInSol = new Solenoid(RobotMap.ROLLER_AIR_IN_PCM);
-		airOutSol = new Solenoid(RobotMap.ROLLER_AIR_OUT_PCM);
+		leftAirInSol = new Solenoid(RobotMap.L_ROLLER_AIR_IN_PCM);
+		leftAirOutSol = new Solenoid(RobotMap.L_ROLLER_AIR_OUT_PCM);
+		rightAirInSol = new Solenoid(RobotMap.R_ROLLER_AIR_IN_PCM);
+		rightAirOutSol = new Solenoid(RobotMap.R_ROLLER_AIR_OUT_PCM);
 		out = false;
 	}
 	
@@ -35,14 +39,18 @@ public class Rollers extends ExpeditiousSubsystem {
 	 
 	public void rollerIn()
 	{
-		airInSol.set(RobotMap.ROLLER_PISTON_VALUE);
-		airOutSol.set(!RobotMap.ROLLER_PISTON_VALUE);
+		leftAirInSol.set(RobotMap.ROLLER_PISTON_VALUE);
+		leftAirOutSol.set(!RobotMap.ROLLER_PISTON_VALUE);
+		rightAirInSol.set(RobotMap.ROLLER_PISTON_VALUE);
+		rightAirOutSol.set(!RobotMap.ROLLER_PISTON_VALUE);
 	 }
 	
 	public void rollerOut()
 	{
-		airInSol.set(!RobotMap.ROLLER_PISTON_VALUE);
-		airOutSol.set(RobotMap.ROLLER_PISTON_VALUE);
+		leftAirInSol.set(!RobotMap.ROLLER_PISTON_VALUE);
+		leftAirOutSol.set(RobotMap.ROLLER_PISTON_VALUE);
+		rightAirInSol.set(!RobotMap.ROLLER_PISTON_VALUE);
+		rightAirOutSol.set(RobotMap.ROLLER_PISTON_VALUE);
 	}
 	
 	
