@@ -75,7 +75,6 @@ public class WinAutonomous extends CommandBase {
 					ROLLER.spinIn();
 				}
 				DRIVE.drive(0.0);
-				
 			}
 			else
 			{
