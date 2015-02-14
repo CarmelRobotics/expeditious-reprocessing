@@ -17,8 +17,8 @@ public class Forklift extends ExpeditiousSubsystem {
 	DigitalInput lowLimit;
 	private Timer liftTime;
 	private boolean oneThrough = false;
-	private Solenoid leftPiston;
-	private Solenoid rightPiston;
+	private Solenoid airInSol;
+	private Solenoid airOutSol;
 	private boolean out;
 	
 	public Forklift() {
@@ -29,8 +29,8 @@ public class Forklift extends ExpeditiousSubsystem {
 		lowLimit = new DigitalInput(RobotMap.LOW_LIMIT_SWITCH);
 		liftTime = new Timer();
 		out = false;
-		leftPiston = new Solenoid(1, RobotMap.EXTEND_SOLENOID_PCM);
-		rightPiston = new Solenoid(1, RobotMap.RETRACT_SOLENOID_PCM);
+		airInSol = new Solenoid(1, RobotMap.BACK_SOLENOID_PCM);
+		airOutSol = new Solenoid(1, RobotMap.FORWARD_SOLENOID_PCM);
 	}
 	
 	
@@ -86,16 +86,16 @@ public class Forklift extends ExpeditiousSubsystem {
 	//added by Abby: tilts the whole forklift system out
 	public void extendForklift()
 	{
-		if(!out)
-		{
-			leftPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
-			rightPiston.set(RobotMap.FORKLIFT_SOLENOID_VALUE);//I believe these values should be the same, we want the soleoids to be in synch Dom
-		}
-		else if(out)
-		{
-			leftPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
-	        rightPiston.set(!RobotMap.FORKLIFT_SOLENOID_VALUE); //I believe these values should be the same, we want the soleoids to be in synch Dom
-		}
+		airInSol.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
+		airOutSol.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
+		System.out.println("Pistons is out"); //I believe these values should be the same, we want the soleoids to be in synch Dom
+	}
+	
+	public void retractForklift()
+	{
+		airInSol.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
+        airOutSol.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
+        System.out.println("Pistons is in");//I believe these values should be the same, we want the soleoids to be in synch Dom
 	}
 	
 	

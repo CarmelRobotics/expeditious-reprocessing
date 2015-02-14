@@ -3,11 +3,11 @@ package org.usfirst.frc.team2035.robot.commands;
 import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
-public class TiltOut extends CommandBase {
+public class ForkliftBack extends CommandBase {
 	
 	private Forklift tilter;
 
-	public TiltOut() {
+	public ForkliftBack() {
 		super("Tilt Out");
 		tilter = Robot.getForklift();
 	}
@@ -25,7 +25,7 @@ public class TiltOut extends CommandBase {
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override

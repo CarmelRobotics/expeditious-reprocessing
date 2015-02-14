@@ -1,29 +1,26 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot; 
-import org.usfirst.frc.team2035.robot.subsystems.Rollers;
+import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
-public class RollerOutIn extends CommandBase {
-
-	private final Rollers roller;
+public class ForkliftForward extends CommandBase {
 	
-	public RollerOutIn()
-	{
-		super("rolleroutin");
-		roller = Robot.getRollers();
-		requires(roller);
+	private Forklift tilter;
+
+	public ForkliftForward() {
+		super("Tilt In");
+		tilter = Robot.getForklift();
+		requires(tilter);
 	}
-	
+
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		
+		tilter.retractForklift();
 	}
 
 	@Override
 	protected void execute() {
-		// TODO Auto-generated method stub
-		roller.rollerOutIn();
+
 	}
 
 	@Override
@@ -35,11 +32,13 @@ public class RollerOutIn extends CommandBase {
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
+
 	}
 
 	@Override
 	protected void interrupted() {
 		// TODO Auto-generated method stub
+
 	}
 
 }

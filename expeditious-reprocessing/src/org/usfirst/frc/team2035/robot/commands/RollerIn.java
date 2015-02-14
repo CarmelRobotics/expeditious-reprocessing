@@ -9,7 +9,7 @@ public class RollerIn extends CommandBase {
 	
 	public RollerIn()
 	{
-		super("rollerin");
+		super("Roller In");
 		roller = Robot.getRollers();
 		requires(roller);
 	}
@@ -23,13 +23,13 @@ public class RollerIn extends CommandBase {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		roller.rollerOutIn();
+		roller.rollerIn();
 	}
 
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	@Override
