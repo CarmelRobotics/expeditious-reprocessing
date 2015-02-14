@@ -38,11 +38,11 @@ public class Forklift extends ExpeditiousSubsystem {
 		
 		while (highLimit.get() == false)
 		{
-		chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
+			chainmotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
 		}
 		if(oneThrough == false)
 		{
-		liftTime.start();
+			liftTime.start();
 		}
 		while(oneThrough == false)
 		{

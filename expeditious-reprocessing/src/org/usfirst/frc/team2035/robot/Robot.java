@@ -53,6 +53,7 @@ public class Robot extends IterativeRobot{
 	private static DriveTrain driver;
 	private static Forklift fork;
 	private static Rollers roller;
+	private static MaxbotixUltrasonic sonar;
 
 	private static CompressorA compressor;
 	private WinAutonomous winAutonomous;	
@@ -76,6 +77,7 @@ public class Robot extends IterativeRobot{
 		compressor = new CompressorA();
 		fork = new Forklift();
 		roller = new Rollers();
+		sonar = new MaxbotixUltrasonic(0);
 		OI.initialize();
 		
     }
@@ -88,6 +90,7 @@ public class Robot extends IterativeRobot{
     public void autonomousInit() {
         //schedule the autonomous command (example)
         if (autonomousCommand != null) autonomousCommand.start();
+        winAutonomous.execute();
     }
 
     /**
@@ -96,7 +99,6 @@ public class Robot extends IterativeRobot{
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
         System.out.println("Auton Loop is running");
-        winAutonomous.execute();
     }
 
     public void teleopInit() {
@@ -170,7 +172,11 @@ public class Robot extends IterativeRobot{
     public static Rollers getRollers()
     {
     	return roller;
-    }  
+    }
+    public static MaxbotixUltrasonic getMaxbotixUltrasonic()
+    {
+    	return sonar;
+    }
     
  }
 

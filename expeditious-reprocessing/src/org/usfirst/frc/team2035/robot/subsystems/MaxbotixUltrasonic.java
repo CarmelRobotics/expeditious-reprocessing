@@ -46,7 +46,6 @@ public class MaxbotixUltrasonic extends SensorBase {
      * Returns -1.0 if units are not being used
      * Returns -2.0 if the voltage is below the minimum voltage
      */
-
     public double getRangeInInches() {
         double range;
         //if we're not using units, return -1, a range that will most likely never be returned

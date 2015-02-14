@@ -58,8 +58,8 @@ public class OI {
 	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
 	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
 	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
-	    solenoid = RobotMap.BUTTON_SOLENOID;
-	    solenoid2 = RobotMap.BUTTON_SOLENOID2;
+	    solenoid = RobotMap.BUTTON_SOLENOID; //rollers out
+	    solenoid2 = RobotMap.BUTTON_SOLENOID2; //rollers in
 	    
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOutIn());
