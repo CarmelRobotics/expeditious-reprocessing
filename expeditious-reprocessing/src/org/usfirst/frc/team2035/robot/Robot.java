@@ -59,6 +59,8 @@ public class Robot extends IterativeRobot{
 	private WinAutonomous winAutonomous;	
     Command autonomousCommand;;
     
+    public static double distance;
+    
     public Robot()
     {
     	driver = new DriveTrain();
@@ -77,9 +79,10 @@ public class Robot extends IterativeRobot{
 		compressor = new CompressorA();
 		fork = new Forklift();
 		roller = new Rollers();
-		sonar = new MaxbotixUltrasonic(0);
+		sonar = new MaxbotixUltrasonic(3);
 		OI.initialize();
 		driver.shiftHighGear();
+		
     }
 	
 	public void disabledPeriodic() {
@@ -176,6 +179,10 @@ public class Robot extends IterativeRobot{
     public static MaxbotixUltrasonic getMaxbotixUltrasonic()
     {
     	return sonar;
+    }
+    public static double getDistance()
+    {
+    	return sonar.getRangeInInches();
     }
     
  }

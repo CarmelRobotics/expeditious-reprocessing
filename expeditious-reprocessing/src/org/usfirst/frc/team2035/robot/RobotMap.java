@@ -120,7 +120,7 @@ public class RobotMap {
     public static final int SAVE_IMAGE_QUALITY = 100;
     public static final String IMAGE_PATH = "/images/test.jpg";
     public static final int DISTANCE_CHANNEL = 0;
-    public static final int CAMERA_SESSION = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
+    public static final int CAMERA_SESSION = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
     //this may need to change to "cam1" depending if using test board or multiple cameras
     public static final Image FRAME = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
