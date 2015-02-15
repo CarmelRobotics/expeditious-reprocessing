@@ -1,6 +1,7 @@
-package org.usfirst.frc.team2035.robot.commands;
+package org.usfirst.frc.team2035.robot.subsystems;
 
 import org.usfirst.frc.team2035.robot.RobotMap;
+import org.usfirst.frc.team2035.robot.subsystems.ExpeditiousSubsystem;
 
 import com.ni.vision.NIVision; 
 import com.ni.vision.NIVision.DrawMode;
@@ -19,13 +20,13 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  * The NIVision class supplies dozens of methods for different types of processing. 
  * The resulting image can then be sent to the FRC PC Dashboard with setImage()
  */
-public class Vision {
+public class Vision extends ExpeditiousSubsystem{
     int session;
     Image frame;
     NIVision.RawData colorTable;
     CameraServer server;
 
-    public void visionInit()
+    public void init()
     {
         frame = RobotMap.FRAME;
         // the camera name (ex "cam0") can be found through the roborio web interface
@@ -56,9 +57,29 @@ public class Vision {
             /** robot code here! **/
             Timer.delay(0.005);		// wait for a motor update time
         
-        NIVision.IMAQdxStopAcquisition(session);
+        
+    }
+    
+    public void sendImage()
+    {
+    	NIVision.IMAQdxGrab(session, frame, 1);
+    	
+    	CameraServer.getInstance().setImage(frame);
+
+        /** robot code here! **/
+        Timer.delay(0.005);		// wait for a motor update time
+    }
+    
+    public void end()
+    {
+    	NIVision.IMAQdxStopAcquisition(session);
     }
 
     public void test() {
+    }
+    
+    protected void initDefaultCommand()
+    {
+    	
     }
 }

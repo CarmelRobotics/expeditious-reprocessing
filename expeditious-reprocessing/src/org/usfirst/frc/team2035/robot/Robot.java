@@ -3,7 +3,8 @@ package org.usfirst.frc.team2035.robot;
 import org.usfirst.frc.team2035.robot.subsystems.DriveTrain;
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
-import org.usfirst.frc.team2035.robot.commands.Vision;
+import org.usfirst.frc.team2035.robot.subsystems.Vision;
+import org.usfirst.frc.team2035.robot.subsystems.MaxbotixUltrasonic;
 
 import edu.wpi.first.wpilibj.IterativeRobot;  
 import edu.wpi.first.wpilibj.command.Command;
@@ -54,6 +55,7 @@ public class Robot extends IterativeRobot{
 	private static Forklift fork;
 	private static Rollers roller;
 	private static MaxbotixUltrasonic sonar;
+	private static Vision grabImage;
 
 	private static CompressorA compressor;
 	private WinAutonomous winAutonomous;	
@@ -78,6 +80,7 @@ public class Robot extends IterativeRobot{
 		fork = new Forklift();
 		roller = new Rollers();
 		sonar = new MaxbotixUltrasonic(0);
+		grabImage = new Vision();
 		OI.initialize();
 		driver.shiftHighGear();
     }
@@ -108,8 +111,7 @@ public class Robot extends IterativeRobot{
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
         driver.shiftHighGear();
-        //grabImage.init();
-        RobotMap.camCounter = 0;
+        grabImage.init();
         //oi.initialize();
           
         
@@ -121,7 +123,7 @@ public class Robot extends IterativeRobot{
      */
     public void disabledInit(){
     	
-    	//grabImage.end();
+    	grabImage.end();
     	
     	
     }
@@ -138,15 +140,7 @@ public class Robot extends IterativeRobot{
         
         //Timer.delay(K_UPDATE_PERIOD);
     	System.out.println("Teleop Loop is running");
-    	//Timer.delay(K_UPDATE_PERIOD);
-        //if(RobotMap.camCounter % 100 == 0)
-        //{	
-        	//grabImage.save();
-        	//System.out.println("Saving image");
-        //}
-        //RobotMap.camCounter++;
-        
-    	System.out.println("Teleop Loop is running");
+        	grabImage.sendImage();
         Timer.delay(K_UPDATE_PERIOD);
         
         compressor.start();
