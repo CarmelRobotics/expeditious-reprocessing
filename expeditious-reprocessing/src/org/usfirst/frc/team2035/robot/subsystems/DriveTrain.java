@@ -33,7 +33,7 @@ public class DriveTrain extends ExpeditiousSubsystem{
         motorBackLeft = new Talon(RobotMap.B_LEFT_MOTOR_PWM);
         motorFrontRight = new Talon(RobotMap.F_RIGHT_MOTOR_PWM);
         motorBackRight = new Talon(RobotMap.B_RIGHT_MOTOR_PWM);
-        stick = new Joystick(RobotMap.JOYSTICK_USB_NUMBER);	// initialize the joystick on USB 0
+        stick = new Joystick(RobotMap.JOYSTICK_R_USB_NUMBER);	// initialize the joystick on USB 0
         drive = new RobotDrive(motorFrontLeft,motorBackLeft,motorFrontRight,motorBackRight);
         //GearShiftSolUp = new Solenoid(RobotMap.DRIVE_TRAIN_HIGH_GEAR);
         //GearShiftSolDown = new Solenoid(RobotMap.DRIVE_TRAIN_LOW_GEAR);
@@ -47,7 +47,7 @@ public class DriveTrain extends ExpeditiousSubsystem{
     
     protected void initDefaultCommand()
     {
-    	super.setDefaultCommand(new StandardDrive(drive, RobotMap.DRIVER_JOYSTICK));
+    	super.setDefaultCommand(new StandardDrive(drive, RobotMap.DRIVER_JOYSTICK_R));
     }
     
     public void arcadeDrive() {

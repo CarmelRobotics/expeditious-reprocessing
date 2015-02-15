@@ -2,6 +2,8 @@ package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -76,10 +78,10 @@ public class RobotMap {
     /*
      * Joystick Buttons
     */
-    public static final int JOYSTICK1_USB_NUMBER = 0;
-    public static final int JOYSTICK2_USB_NUMBER = 1;
-    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK1_USB_NUMBER);
-    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK2_USB_NUMBER);
+    public static final int JOYSTICK_R_USB_NUMBER = 0;
+    public static final int JOYSTICK_L_USB_NUMBER = 1;
+    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_R_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_L_USB_NUMBER);
     
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
