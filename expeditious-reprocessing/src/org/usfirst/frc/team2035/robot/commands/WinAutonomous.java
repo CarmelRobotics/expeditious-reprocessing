@@ -82,7 +82,7 @@ public class WinAutonomous extends CommandBase {
 					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
 					if(!ROLLER.getOut())
 					{
-						ROLLER.rollerOutIn();
+						ROLLER.rollerOut();
 					}
 				}
 				//when a tote is in range, stop driving, retract rollers, lean the forklift forward and spin inward				
@@ -92,7 +92,7 @@ public class WinAutonomous extends CommandBase {
 				LIFTER.extendForklift();
 				if(ROLLER.getOut())
 				{
-					ROLLER.rollerOutIn();
+					ROLLER.rollerIn();
 				}
 				rollerTimer.start();
 				while(rollerTimer.get() < .3)
@@ -102,7 +102,7 @@ public class WinAutonomous extends CommandBase {
 				//release the rollers, start to lift the tote for 2 seconds
 				if(!ROLLER.getOut())
 				{
-					ROLLER.rollerOutIn();
+					ROLLER.rollerOut();
 				}
 				liftTimer.start();
 				if(liftTimer.get() <= 2)

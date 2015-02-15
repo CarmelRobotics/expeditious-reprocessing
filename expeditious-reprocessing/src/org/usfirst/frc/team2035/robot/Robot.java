@@ -79,7 +79,7 @@ public class Robot extends IterativeRobot{
 		roller = new Rollers();
 		sonar = new MaxbotixUltrasonic(0);
 		OI.initialize();
-		
+		driver.shiftHighGear();
     }
 	
 	public void disabledPeriodic() {
@@ -107,7 +107,7 @@ public class Robot extends IterativeRobot{
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        
+        driver.shiftHighGear();
         //grabImage.init();
         RobotMap.camCounter = 0;
         //oi.initialize();

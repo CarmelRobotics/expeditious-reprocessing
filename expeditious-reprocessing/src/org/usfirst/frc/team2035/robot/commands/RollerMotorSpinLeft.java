@@ -1,32 +1,30 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot; 
+import org.usfirst.frc.team2035.robot.Robot;
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 
-public class RollerMotorOut extends CommandBase {
 
-	private final Rollers roller;
+public class RollerMotorSpinLeft extends CommandBase {
 	
-	public RollerMotorOut()
-	{
-		super("rollermotorout");
+	private final Rollers roller;
+
+	public RollerMotorSpinLeft() {
+		super("rollermotorleft");
 		roller = Robot.getRollers();
 		requires(roller);
 	}
-	
+
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		roller.spinOut();
+		roller.spinLeft();
+
 		
 	}
 
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		//roller.spinOut();
-		//System.out.println("MotorOut called");
-		//roller.spinOut();
+		
 	}
 
 	@Override
@@ -37,14 +35,14 @@ public class RollerMotorOut extends CommandBase {
 
 	@Override
 	protected void end() {
-		// TODO Auto-generated method stub
 		roller.motorOff();
+		
 	}
 
 	@Override
 	protected void interrupted() {
-		// TODO Auto-generated method stub
 		roller.motorOff();
+		
 	}
 
 }

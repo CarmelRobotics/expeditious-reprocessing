@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.Robot; 
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 
 public class RollerIn extends CommandBase {
@@ -16,14 +16,15 @@ public class RollerIn extends CommandBase {
 	
 	@Override
 	protected void initialize() {
-		// TODO Auto-generated method stub
-		
+	   // TODO Auto-generated method stub
+		roller.rollerIn();
+
 	}
 
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		roller.rollerOutIn();
+		roller.rollerIn();
 	}
 
 	@Override

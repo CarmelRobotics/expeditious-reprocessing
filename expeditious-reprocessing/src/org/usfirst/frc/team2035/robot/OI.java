@@ -1,14 +1,8 @@
 package org.usfirst.frc.team2035.robot;
 
-import edu.wpi.first.wpilibj.buttons.Button;
-
+import edu.wpi.first.wpilibj.buttons.Button; 
 import org.usfirst.frc.team2035.robot.RobotMap;
-import org.usfirst.frc.team2035.robot.commands.RollerIn;
-import org.usfirst.frc.team2035.robot.commands.RollerOutIn;
-import org.usfirst.frc.team2035.robot.commands.RollerMotorIn;
-import org.usfirst.frc.team2035.robot.commands.RollerMotorOut;
-import org.usfirst.frc.team2035.robot.commands.ShiftLowGear;
-import org.usfirst.frc.team2035.robot.commands.TestSolenoidOn;
+import org.usfirst.frc.team2035.robot.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -46,26 +40,44 @@ public class OI {
 	private static Button rollerMotorIn;
 	private static Button rollerMotorOut;
 	private static Button shiftGear;
-	private static Button solenoid;
-	private static Button solenoid2;
+	private static Button lift;
+	private static Button lower;
+	private static Button forkliftBack;
+	private static Button forkliftForward;
+	private static Button rollerMotorLeft;
+	private static Button rollerMotorRight;
 	
 	public static void initialize()
 	{
+		/*
+		 * Initializes buttons
+		 */
 		shiftGear = RobotMap.BUTTON_SHIFT_GEAR;
-		shiftGear.whileHeld(new ShiftLowGear());
-		
-		rollerIn = RobotMap.BUTTON_ROLLER_EXTEND;
-	    rollerOut = RobotMap.BUTTON_ROLLER_RETRACT;
-	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_SPIN;
-	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_SPIT;
-	    solenoid = RobotMap.BUTTON_SOLENOID; //rollers out
-	    solenoid2 = RobotMap.BUTTON_SOLENOID2; //rollers in
+		rollerIn = RobotMap.BUTTON_ROLLER_OUT;
+	    rollerOut = RobotMap.BUTTON_ROLLER_IN;
+	    rollerMotorIn = RobotMap.BUTTON_ROLLER_MOTOR_IN;
+	    rollerMotorOut = RobotMap.BUTTON_ROLLER_MOTOR_OUT;
+	    lift = RobotMap.BUTTON_FORKLIFT_UP;
+	    lower = RobotMap.BUTTON_FORKLIFT_DOWN;
+	    forkliftBack = RobotMap.BUTTON_FORKLIFT_BACK;
+	    forkliftForward = RobotMap.BUTTON_FORKLIFT_FORWARD;
+	    rollerMotorLeft = RobotMap.BUTTON_ROLLER_SPIN_LEFT;
+	    rollerMotorRight =  RobotMap.BUTTON_ROLLER_SPIN_RIGHT;
 	    
+	    /*
+	     * All button functions
+	     */
 	    rollerIn.whenPressed(new RollerIn());
-	    rollerOut.whenPressed(new RollerOutIn());
+	    rollerOut.whenPressed(new RollerOut());
 	    rollerMotorIn.whileHeld(new RollerMotorOut());
-	    //rollerMotorOut.whenPressed(new RollerMotorIn());
-	    solenoid.whenPressed(new TestSolenoidOn());
+	    rollerMotorOut.whileHeld(new RollerMotorIn());
+	    lift.whileHeld(new LiftForklift());
+	    lower.whileHeld(new LowerForklift());
+	    forkliftBack.whenPressed(new ForkliftBack());
+	    forkliftForward.whenPressed(new ForkliftForward());
+		shiftGear.whileHeld(new ShiftLowGear());
+		rollerMotorLeft.whileHeld(new RollerMotorSpinLeft());
+		rollerMotorRight.whileHeld(new RollerMotorSpinRight());
 	    
 	}
 }

@@ -32,13 +32,24 @@ public class RobotMap {
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
     public static final int R_CHAIN_MOTOR_PWM = 4; //Right chain motor is wired to PWM out 4
     public static final int L_CHAIN_MOTOR_PWM = 5;
-    public static final int RIGHT_ROLLER_MOTOR = 6;//6
-    public static final int LEFT_ROLLER_MOTOR = 7;//7
+    public static final int R_ROLLER_MOTOR_PWM = 6;//6
+    public static final int L_ROLLER_MOTOR_PWM = 7;//7
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
     
     public static final boolean ROLLER_PISTON_VALUE = true;
+    /*
+     * Solenoid PCMs
+     */
+    public static final int L_ROLLER_AIR_IN_PCM = 0; // Left Roller Solenoid is wired to PCM 0
+    public static final int L_ROLLER_AIR_OUT_PCM = 7; // Right Roller Solenoid is wired to PCM 1
+    public static final int R_ROLLER_AIR_IN_PCM = 1; // Left Roller Solenoid is wired to PCM 0
+    public static final int R_ROLLER_AIR_OUT_PCM = 6; // Right Roller Solenoid is wired to PCM 1
+    public static final int BACK_SOLENOID_PCM = 2; // Left Roller Solenoid is wired to PCM 0
+    public static final int FORWARD_SOLENOID_PCM = 5; // Left Roller Solenoid is wired to PCM 0
+    public static final int DRIVE_TRAIN_AIR_IN = 3; //Drive Train High Gear Solenoid set to Relay cartridge 1
+    public static final int DRIVE_TRAIN_AIR_OUT = 4; //Drive Train Low Gear Solenoid set to Relay cartridge 2
     
     /*
      * DIGITAL SIDECAR DIGITAL INPUTS NUMBERING (can be 1-14)
@@ -48,17 +59,18 @@ public class RobotMap {
     public static final int LOW_LIMIT_SWITCH = 2;
     
     /*
-    
-    /*
      * DRIVETRAIN SUBSYSTEM CONSTANTS
      */
     public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
-    public static final double ROLLER_SPEED = 1.0;
+	/*
+	 * SPEED CONSTRAINTS
+	 */
+    public static final double ROLLER_SPEED = 0.5;
+    public static final double FORKLIFT_MOTOR_SPEED = -0.75; //chain motor lift speed is set to lift at half speed 50%
+    public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
+    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = 0.5; //chain motor reverses at half speed -50%
     
     public static final int JOYSTICK1 = 0; // First joystick is wired to USB 0
-    
-    public static final int JOYSTICK_USB_NUMBER = 0;
-    public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
     public static final boolean LowGearSolenoidValue = false;
     /*
@@ -68,37 +80,29 @@ public class RobotMap {
     public static final int DriveTrainLowGear = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
     
     /*
-     * Forklift varialbles, this will be overwritten
-     */
-    
-    public static final int FORWARD_SOLENOID_PCM = 3;
-    public static final int BACK_SOLENOID_PCM = 2;
-    public static final boolean FORKLIFT_SOLENOID_VALUE = true;
-    
-    public static final int DIG_IN_CHANNEL1 = 1;
-    public static final int DIG_IN_CHANNEL2 = 2;
-    /*
      * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
     public static final int COMPRESSOR_RELAY = 5;
 
     
     /*
-     * FORKLIFT SUBSYSTEM CONSTANTS
+     * Joystick Buttons
      */
+    public static final int JOYSTICK_USB_NUMBER = 0; 
+    public static final Joystick DRIVER_JOYSTICK = new Joystick(JOYSTICK_USB_NUMBER);
     
-    public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
-    public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
-    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
-
-    
+    public static final JoystickButton BUTTON_ROLLER_IN = new JoystickButton(DRIVER_JOYSTICK, 7);
+    public static final JoystickButton BUTTON_ROLLER_OUT = new JoystickButton(DRIVER_JOYSTICK, 6);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_IN = new JoystickButton(DRIVER_JOYSTICK, 5);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_OUT = new JoystickButton(DRIVER_JOYSTICK, 4);
+    public static final JoystickButton BUTTON_FORKLIFT_UP = new JoystickButton(DRIVER_JOYSTICK, 3);
+    public static final JoystickButton BUTTON_FORKLIFT_DOWN = new JoystickButton(DRIVER_JOYSTICK, 2);
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK, 1);
-    public static final JoystickButton BUTTON_ROLLER_EXTEND = new JoystickButton(DRIVER_JOYSTICK, 2);
-    public static final JoystickButton BUTTON_ROLLER_RETRACT = new JoystickButton(DRIVER_JOYSTICK, 3);
-    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIN = new JoystickButton(DRIVER_JOYSTICK, 2);
-    public static final JoystickButton BUTTON_ROLLER_MOTOR_SPIT = new JoystickButton(DRIVER_JOYSTICK, 5);
-    public static final JoystickButton BUTTON_SOLENOID = new JoystickButton(DRIVER_JOYSTICK, 6);
-    public static final JoystickButton BUTTON_SOLENOID2 = new JoystickButton(DRIVER_JOYSTICK, 7);
+    public static final JoystickButton BUTTON_FORKLIFT_BACK = new JoystickButton(DRIVER_JOYSTICK, 8);
+    public static final JoystickButton BUTTON_FORKLIFT_FORWARD = new JoystickButton(DRIVER_JOYSTICK, 9);
+    public static final JoystickButton BUTTON_ROLLER_SPIN_RIGHT = new JoystickButton(DRIVER_JOYSTICK, 11);
+    public static final JoystickButton BUTTON_ROLLER_SPIN_LEFT = new JoystickButton(DRIVER_JOYSTICK, 10);
+    
     
     /*
      * Camera
