@@ -22,13 +22,18 @@ public class RobotMap {
     // number and the module. For example you with a rangefinder:
     // public static int rangefinderPort = 1;
     // public static int rangefinderModule = 1;
+	
+	/*
+	 *  Motor PWMS
+	 */
 	public static final int F_LEFT_MOTOR_PWM = 0; // Front Left drive motor is wired to PWM out 0
     public static final int B_LEFT_MOTOR_PWM = 1; // Rear Left drive motor is wired to PWM out 1
     public static final int F_RIGHT_MOTOR_PWM = 2; // Front Right drive motor is wired to PWM out 2
     public static final int B_RIGHT_MOTOR_PWM = 3; // Rear Right drive motor is wired to PWM out 3 
-    public static final int CHAIN_MOTOR_PWM = 4; //chain motor is wired to PWM out 4
-    public static final int RIGHT_ROLLER_MOTOR = 5;//5
-    public static final int LEFT_ROLLER_MOTOR = 6;//6
+    public static final int R_CHAIN_MOTOR_PWM = 4; //Right chain motor is wired to PWM out 4
+    public static final int L_CHAIN_MOTOR_PWM = 5;
+    public static final int RIGHT_ROLLER_MOTOR = 6;//6
+    public static final int LEFT_ROLLER_MOTOR = 7;//7
     
     public static final int LEFT_ROLLER_PISTON = 0;
     public static final int RIGHT_ROLLER_PISTON = 1;
@@ -62,15 +67,22 @@ public class RobotMap {
     public static final int DriveTrainHighGear = 1; //Drive Train High Gear Solenoid set to Relay cartridge 1
     public static final int DriveTrainLowGear = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
     
-
+    /*
+     * Forklift varialbles, this will be overwritten
+     */
+    
+    public static final int FORWARD_SOLENOID_PCM = 3;
+    public static final int BACK_SOLENOID_PCM = 2;
+    public static final boolean FORKLIFT_SOLENOID_VALUE = true;
+    
     public static final int DIG_IN_CHANNEL1 = 1;
     public static final int DIG_IN_CHANNEL2 = 2;
     /*
      * DIGITAL SIDECAR RELAYS NUMBERING (can be 1-8)
      */
     public static final int COMPRESSOR_RELAY = 5;
+
     
-    // Organize this later
     /*
      * FORKLIFT SUBSYSTEM CONSTANTS
      */
