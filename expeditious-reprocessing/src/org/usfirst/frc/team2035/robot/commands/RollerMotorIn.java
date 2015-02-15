@@ -17,7 +17,7 @@ public class RollerMotorIn extends CommandBase {
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		System.out.println("roller motor in init");
+		//System.out.println("roller motor in init");
 		roller.spinIn();
 		
 	}

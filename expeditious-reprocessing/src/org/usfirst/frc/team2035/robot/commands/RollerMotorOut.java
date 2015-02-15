@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.Robot; 
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 
 public class RollerMotorOut extends CommandBase {
@@ -17,6 +17,7 @@ public class RollerMotorOut extends CommandBase {
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
+		roller.spinOut();
 		
 	}
 
@@ -25,7 +26,7 @@ public class RollerMotorOut extends CommandBase {
 		// TODO Auto-generated method stub
 		//roller.spinOut();
 		//System.out.println("MotorOut called");
-		roller.spinOut();
+		//roller.spinOut();
 	}
 
 	@Override

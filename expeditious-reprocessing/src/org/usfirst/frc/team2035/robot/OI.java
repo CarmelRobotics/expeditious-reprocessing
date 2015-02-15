@@ -44,6 +44,8 @@ public class OI {
 	private static Button lower;
 	private static Button forkliftBack;
 	private static Button forkliftForward;
+	private static Button rollerMotorLeft;
+	private static Button rollerMotorRight;
 	
 	public static void initialize()
 	{
@@ -59,6 +61,8 @@ public class OI {
 	    lower = RobotMap.BUTTON_FORKLIFT_DOWN;
 	    forkliftBack = RobotMap.BUTTON_FORKLIFT_BACK;
 	    forkliftForward = RobotMap.BUTTON_FORKLIFT_FORWARD;
+	    rollerMotorLeft = RobotMap.BUTTON_ROLLER_SPIN_LEFT;
+	    rollerMotorRight =  RobotMap.BUTTON_ROLLER_SPIN_RIGHT;
 	    
 	    /*
 	     * All button functions
@@ -72,6 +76,8 @@ public class OI {
 	    forkliftBack.whenPressed(new ForkliftBack());
 	    forkliftForward.whenPressed(new ForkliftForward());
 		shiftGear.whileHeld(new ShiftLowGear());
+		rollerMotorLeft.whileHeld(new RollerMotorSpinLeft());
+		rollerMotorRight.whileHeld(new RollerMotorSpinRight());
 	    
 	}
 }
