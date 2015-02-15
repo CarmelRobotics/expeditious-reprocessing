@@ -80,8 +80,8 @@ public class RobotMap {
     */
     public static final int JOYSTICK_R_USB_NUMBER = 0;
     public static final int JOYSTICK_L_USB_NUMBER = 1;
-    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_R_USB_NUMBER);
-    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_L_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_R_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_L_USB_NUMBER);
     
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
