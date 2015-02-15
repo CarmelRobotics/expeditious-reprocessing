@@ -80,8 +80,8 @@ public class RobotMap {
     */
     public static final int JOYSTICK_R_USB_NUMBER = 0;
     public static final int JOYSTICK_L_USB_NUMBER = 1;
-    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_R_USB_NUMBER);
-    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_L_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_R_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_L_USB_NUMBER);
     
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
@@ -120,7 +120,7 @@ public class RobotMap {
     public static final int SAVE_IMAGE_QUALITY = 100;
     public static final String IMAGE_PATH = "/images/test.jpg";
     public static final int DISTANCE_CHANNEL = 0;
-    public static final int CAMERA_SESSION = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
+    public static final int CAMERA_SESSION = NIVision.IMAQdxOpenCamera("cam0", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
     //this may need to change to "cam1" depending if using test board or multiple cameras
     public static final Image FRAME = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 

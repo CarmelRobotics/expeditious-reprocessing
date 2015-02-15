@@ -69,8 +69,8 @@ public class OI {
 	     */
 	    rollerIn.whenPressed(new RollerIn());
 	    rollerOut.whenPressed(new RollerOut());
-	    rollerMotorIn.whileHeld(new RollerMotorOut());
-	    rollerMotorOut.whileHeld(new RollerMotorIn());
+	    rollerMotorIn.whileHeld(new RollerMotorIn());
+	    rollerMotorOut.whileHeld(new RollerMotorOut());
 	    lift.whileHeld(new LiftForklift());
 	    lower.whileHeld(new LowerForklift());
 	    forkliftBack.whenPressed(new ForkliftBack());
