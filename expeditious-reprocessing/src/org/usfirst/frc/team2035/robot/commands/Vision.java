@@ -27,9 +27,9 @@ public class Vision {
 
     public void visionInit()
     {
-        frame = RobotMap.frame;
+        frame = RobotMap.FRAME;
         // the camera name (ex "cam0") can be found through the roborio web interface
-        session = RobotMap.cameraSession;
+        session = RobotMap.CAMERA_SESSION;
         NIVision.IMAQdxConfigureGrab(session);
         
         colorTable = new NIVision.RawData();

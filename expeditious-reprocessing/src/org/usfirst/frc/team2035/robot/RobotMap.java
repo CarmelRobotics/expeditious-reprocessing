@@ -2,6 +2,8 @@ package org.usfirst.frc.team2035.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.Image;
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -76,10 +78,10 @@ public class RobotMap {
     /*
      * Joystick Buttons
     */
-    public static final int JOYSTICK1_USB_NUMBER = 0;
-    public static final int JOYSTICK2_USB_NUMBER = 1;
-    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK1_USB_NUMBER);
-    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK2_USB_NUMBER);
+    public static final int JOYSTICK_R_USB_NUMBER = 0;
+    public static final int JOYSTICK_L_USB_NUMBER = 1;
+    public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_R_USB_NUMBER);
+    public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_L_USB_NUMBER);
     
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
@@ -118,6 +120,9 @@ public class RobotMap {
     public static final int SAVE_IMAGE_QUALITY = 100;
     public static final String IMAGE_PATH = "/images/test.jpg";
     public static final int DISTANCE_CHANNEL = 0;
+    public static final int CAMERA_SESSION = NIVision.IMAQdxOpenCamera("cam1", NIVision.IMAQdxCameraControlMode.CameraControlModeController); 
+    //this may need to change to "cam1" depending if using test board or multiple cameras
+    public static final Image FRAME = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
     
    /*
