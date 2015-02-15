@@ -17,7 +17,8 @@ public class RollerOut extends CommandBase {
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
-		
+		roller.rollerOut();
+
 	}
 
 	@Override

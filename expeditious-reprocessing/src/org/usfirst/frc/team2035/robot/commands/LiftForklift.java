@@ -1,25 +1,32 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.*;
+import org.usfirst.frc.team2035.robot.*; 
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
+import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 import org.usfirst.frc.team2035.robot.Robot;
+
 
 public class LiftForklift extends CommandBase {
 	private final Forklift forklift;
+	private final Rollers roller;
 	
 	public LiftForklift(){
 		super("liftforklift");
 		forklift = Robot.getForklift();
+		roller = Robot.getRollers();
+		requires(roller);
 		requires(forklift);
 	}
 	
 	 // Called just before this Command runs the first time
     protected void initialize() {
+    	roller.rollerOut();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	forklift.setOneThrough(false);
+    	//forklift.setOneThrough(false);
+    	
         forklift.setliftforklift();
     }
     

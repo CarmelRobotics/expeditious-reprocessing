@@ -36,13 +36,13 @@ public class RobotMap {
      * Solenoid PCMs
      */
     public static final int L_ROLLER_AIR_IN_PCM = 0; // Left Roller Solenoid is wired to PCM 0
-    public static final int L_ROLLER_AIR_OUT_PCM = 1; // Right Roller Solenoid is wired to PCM 1
-    public static final int R_ROLLER_AIR_IN_PCM = 0; // Left Roller Solenoid is wired to PCM 0
-    public static final int R_ROLLER_AIR_OUT_PCM = 1; // Right Roller Solenoid is wired to PCM 1
+    public static final int L_ROLLER_AIR_OUT_PCM = 7; // Right Roller Solenoid is wired to PCM 1
+    public static final int R_ROLLER_AIR_IN_PCM = 1; // Left Roller Solenoid is wired to PCM 0
+    public static final int R_ROLLER_AIR_OUT_PCM = 6; // Right Roller Solenoid is wired to PCM 1
     public static final int BACK_SOLENOID_PCM = 2; // Left Roller Solenoid is wired to PCM 0
-    public static final int FORWARD_SOLENOID_PCM = 3; // Left Roller Solenoid is wired to PCM 0
-    public static final int DRIVE_TRAIN_HIGH_GEAR = 1; //Drive Train High Gear Solenoid set to Relay cartridge 1
-    public static final int DRIVE_TRAIN_LOW_GEAR = 2; //Drive Train Low Gear Solenoid set to Relay cartridge 2
+    public static final int FORWARD_SOLENOID_PCM = 5; // Left Roller Solenoid is wired to PCM 0
+    public static final int DRIVE_TRAIN_AIR_IN = 3; //Drive Train High Gear Solenoid set to Relay cartridge 1
+    public static final int DRIVE_TRAIN_AIR_OUT = 4; //Drive Train Low Gear Solenoid set to Relay cartridge 2
     
     
     /*
@@ -59,10 +59,10 @@ public class RobotMap {
      * SPEED CONSTANTS
      */
     public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
-    public static final double ROLLER_SPEED = 1.0;
-    public static final double FORKLIFT_MOTOR_SPEED = 0.5; //chain motor lift speed is set to lift at half speed 50%
+    public static final double ROLLER_SPEED = 0.5;
+    public static final double FORKLIFT_MOTOR_SPEED = -0.75; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
-    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = -0.5; //chain motor reverses at half speed -50%
+    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = 0.5; //chain motor reverses at half speed -50%
     
     
     /*

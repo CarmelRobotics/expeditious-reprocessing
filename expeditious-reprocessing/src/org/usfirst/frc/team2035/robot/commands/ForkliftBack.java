@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.Robot;
+import org.usfirst.frc.team2035.robot.Robot; 
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 
 public class ForkliftBack extends CommandBase {
@@ -10,6 +10,7 @@ public class ForkliftBack extends CommandBase {
 	public ForkliftBack() {
 		super("Tilt Out");
 		tilter = Robot.getForklift();
+		requires(tilter);
 	}
 
 	@Override
@@ -19,6 +20,7 @@ public class ForkliftBack extends CommandBase {
 
 	@Override
 	protected void execute() {
+		tilter.extendForklift();
 
 	}
 

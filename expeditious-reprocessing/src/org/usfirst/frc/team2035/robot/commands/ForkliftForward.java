@@ -20,6 +20,7 @@ public class ForkliftForward extends CommandBase {
 
 	@Override
 	protected void execute() {
+		tilter.retractForklift();
 
 	}
 

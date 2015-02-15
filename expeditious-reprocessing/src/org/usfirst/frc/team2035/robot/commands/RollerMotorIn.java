@@ -17,24 +17,29 @@ public class RollerMotorIn extends CommandBase {
 	@Override
 	protected void initialize() {
 		// TODO Auto-generated method stub
+		System.out.println("roller motor in init");
+		roller.spinIn();
 		
 	}
 
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
-		roller.spinIn();
+		//roller.spinIn();
+		
 	}
 
 	@Override
 	protected boolean isFinished() {
 		// TODO Auto-generated method stub
+		
 		return false;
 	}
 
 	@Override
 	protected void end() {
 		// TODO Auto-generated method stub
+		//System.out.println("roller motor in end");
 		roller.motorOff();
 	}
 

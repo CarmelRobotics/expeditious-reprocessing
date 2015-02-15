@@ -36,11 +36,9 @@ public class ShiftHighGear extends CommandBase {
     	return true;
     }
     protected void end() {
-    	train.shiftLowGear();
     }
     
     protected void interrupted() {
-    	train.shiftLowGear();
     }
 
 }

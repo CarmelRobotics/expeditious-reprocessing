@@ -23,6 +23,8 @@ public class RollerMotorOut extends CommandBase {
 	@Override
 	protected void execute() {
 		// TODO Auto-generated method stub
+		//roller.spinOut();
+		//System.out.println("MotorOut called");
 		roller.spinOut();
 	}
 
