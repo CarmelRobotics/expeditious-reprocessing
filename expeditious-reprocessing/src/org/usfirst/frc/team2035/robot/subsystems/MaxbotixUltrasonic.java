@@ -14,6 +14,7 @@ public class MaxbotixUltrasonic extends SensorBase {
     private double min_distance;  //Minimum distance the ultrasonic sensor can return in inches
     private double distance_range;//The range of the distances returned by this class in inches (maximum - minimum)
     AnalogInput channel;
+    
     //constructor
     public MaxbotixUltrasonic(int _channel) {
         channel = new AnalogInput(_channel);
