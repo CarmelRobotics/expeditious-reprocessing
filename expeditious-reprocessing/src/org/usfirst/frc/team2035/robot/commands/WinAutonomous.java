@@ -22,7 +22,7 @@ public class WinAutonomous extends CommandBase {
 	private Timer rollerTimer;
 	private double drivenTime;
 	private double storedTime;
-	private Vision vision;
+	private Vision2 vision;
 	private ImageProcess process;
 	private double lowTime = .1;
 	private double highTime = 1.1;
@@ -33,7 +33,7 @@ public class WinAutonomous extends CommandBase {
 		LIFTER = Robot.getForklift();
 		ROLLER = Robot.getRollers();
 		SONAR = Robot.getMaxbotixUltrasonic();
-		vision = new Vision();
+		vision = new Vision2();
 		process = new ImageProcess();
 	}
 	
