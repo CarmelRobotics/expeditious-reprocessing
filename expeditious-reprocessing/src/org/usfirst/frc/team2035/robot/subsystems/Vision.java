@@ -67,12 +67,12 @@ public class Vision extends ExpeditiousSubsystem{
     	CameraServer.getInstance().setImage(frame);
 
         /** robot code here! **/
-        Timer.delay(0.005);		// wait for a motor update time
+        //Timer.delay(0.005);		// wait for a motor update time
     }
     
     public void end()
     {
-    	NIVision.IMAQdxStopAcquisition(session);
+    	//NIVision.IMAQdxStopAcquisition(session);
     }
 
     public void test() {

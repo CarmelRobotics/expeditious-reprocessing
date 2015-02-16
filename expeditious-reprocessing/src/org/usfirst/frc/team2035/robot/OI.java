@@ -75,7 +75,7 @@ public class OI {
 	    lower.whileHeld(new LowerForklift());
 	    forkliftBack.whenPressed(new ForkliftBack());
 	    forkliftForward.whenPressed(new ForkliftForward());
-		shiftGear.whileHeld(new ShiftLowGear());
+		shiftGear.whileHeld(new ShiftHighGear());
 		rollerMotorLeft.whileHeld(new RollerMotorSpinLeft());
 		rollerMotorRight.whileHeld(new RollerMotorSpinRight());
 	    

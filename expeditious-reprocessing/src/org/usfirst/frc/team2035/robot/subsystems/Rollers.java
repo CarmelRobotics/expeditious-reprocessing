@@ -82,14 +82,14 @@ public class Rollers extends ExpeditiousSubsystem {
 	 
 	 public void spinRight()
 	 {
-		 rightMotor.set(RobotMap.ROLLER_SPEED);
-		 leftMotor.set(RobotMap.ROLLER_SPEED);
+		 rightMotor.set(RobotMap.ROLLER_SPEED/2);
+		 leftMotor.set(RobotMap.ROLLER_SPEED/2);
 	 }
 	 
 	 public void spinLeft()
 	 {
-		 rightMotor.set(-RobotMap.ROLLER_SPEED);
-		 leftMotor.set(-RobotMap.ROLLER_SPEED);
+		 rightMotor.set(-(RobotMap.ROLLER_SPEED/2));
+		 leftMotor.set(-(RobotMap.ROLLER_SPEED/2));
 	 }
 	 
 	 public void motorOff()

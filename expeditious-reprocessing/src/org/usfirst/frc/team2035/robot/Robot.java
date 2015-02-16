@@ -82,7 +82,7 @@ public class Robot extends IterativeRobot{
 		sonar = new MaxbotixUltrasonic(0);
 		grabImage = new Vision();
 		OI.initialize();
-		driver.shiftHighGear();
+		driver.shiftLowGear();
     }
 	
 	public void disabledPeriodic() {
@@ -110,7 +110,7 @@ public class Robot extends IterativeRobot{
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        driver.shiftHighGear();
+        driver.shiftLowGear();
         grabImage.init();
         //oi.initialize();
           
@@ -139,7 +139,7 @@ public class Robot extends IterativeRobot{
         driver.arcadeDrive();
         
         //Timer.delay(K_UPDATE_PERIOD);
-    	System.out.println("Teleop Loop is running");
+    	//System.out.println("Teleop Loop is running");
         	grabImage.sendImage();
         Timer.delay(K_UPDATE_PERIOD);
         

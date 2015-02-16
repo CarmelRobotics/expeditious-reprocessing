@@ -33,12 +33,14 @@ public class ShiftHighGear extends CommandBase {
     }
     
     protected boolean isFinished() {
-    	return true;
+    	return false;
     }
     protected void end() {
+    	train.shiftLowGear();
     }
     
     protected void interrupted() {
+    	train.shiftLowGear();
     }
 
 }
