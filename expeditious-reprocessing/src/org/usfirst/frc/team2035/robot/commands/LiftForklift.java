@@ -29,7 +29,7 @@ public class LiftForklift extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//forklift.setOneThrough(false);
-    	//System.out.println(forklift.getLimit());
+    	//System.out.println(forklift.getLimit().get());
         forklift.setliftforklift();
         i++;
         
@@ -39,7 +39,7 @@ public class LiftForklift extends CommandBase {
     protected boolean isFinished() {
 
     	i++;
-    	if(i <=50)
+    	if(i <=20)
     	{
     		return false;
     	}

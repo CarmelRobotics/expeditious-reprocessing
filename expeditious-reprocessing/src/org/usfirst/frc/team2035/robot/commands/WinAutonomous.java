@@ -77,13 +77,10 @@ public class WinAutonomous extends CommandBase {
 			{
 				//drive until tote is 1 foot away with the rollers out
 				driveTimer.start();
+				ROLLER.rollerOut();
 				while(SONAR.getRangeInInches() > 12)
 				{
 					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
-					if(!ROLLER.getOut())
-					{
-						ROLLER.rollerOut();
-					}
 				}
 				//when a tote is in range, stop driving, retract rollers, lean the forklift forward and spin inward				
 				driveTimer.stop();

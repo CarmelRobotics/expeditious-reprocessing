@@ -50,7 +50,7 @@ public class Forklift extends ExpeditiousSubsystem {
 	
 	public void setliftforklift() {
 		
-		if(highLimit.get())
+		//if(highLimit.get())
 			//System.out.println("pressed");
 		
 			rightChainMotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map

@@ -62,9 +62,9 @@ public class RobotMap {
      */
     public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
     public static final double ROLLER_SPEED = 0.5;
-    public static final double FORKLIFT_MOTOR_SPEED = -0.75; //chain motor lift speed is set to lift at half speed 50%
+    public static final double FORKLIFT_MOTOR_SPEED = -1; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
-    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = 0.5; //chain motor reverses at half speed -50%
+    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = 1; //chain motor reverses at half speed -50%
     
     
     /*
