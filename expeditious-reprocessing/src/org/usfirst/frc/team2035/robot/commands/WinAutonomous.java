@@ -15,7 +15,7 @@ public class WinAutonomous extends CommandBase {
 	private final DriveTrain DRIVE;
 	private final Forklift LIFTER;
 	private final Rollers ROLLER;
-	private final MaxbotixUltrasonic SONAR;
+	private MaxbotixUltrasonic sonar;
 	private Timer autonomousTimer;
 	private Timer liftTimer;
 	private Timer driveTimer;
@@ -24,15 +24,16 @@ public class WinAutonomous extends CommandBase {
 	private double storedTime;
 	private Vision2 vision;
 	private ImageProcess process;
-	private double lowTime = .1;
-	private double highTime = 1.1;
+	private double lowTime = .0;
+	private double highTime = 1.0;
+	private int forkCounter = 0;
 	
 	public WinAutonomous() {
 		super("drive");
 		DRIVE = Robot.getDriveTrain();
 		LIFTER = Robot.getForklift();
 		ROLLER = Robot.getRollers();
-		SONAR = Robot.getMaxbotixUltrasonic();
+		sonar = Robot.getMaxbotixUltrasonic();
 		vision = new Vision2();
 		process = new ImageProcess();
 	}
@@ -59,10 +60,11 @@ public class WinAutonomous extends CommandBase {
 		*/
 		autonomousTimer.start();
 		storedTime = autonomousTimer.get();
-		while(storedTime < 15)
-		{
+		ROLLER.rollerOut();
+		//while(storedTime < 15)
+		//{
 			//grabs and processes an image every 3 seconds
-			if(storedTime > lowTime && storedTime < highTime)
+			if(storedTime >= lowTime && storedTime <= highTime)
 			{
 				vision.saveImage();
 				process.processImage();
@@ -72,15 +74,15 @@ public class WinAutonomous extends CommandBase {
 			System.out.println("Time: " + storedTime);
 			System.out.println("Low: " + lowTime);
 			System.out.println("High: " + highTime);
+			System.out.println("Distance: " + sonar.getRangeInInches());
 			//If a tote is found
 			if(process.foundTote())
 			{
 				//drive until tote is 1 foot away with the rollers out
 				driveTimer.start();
-				ROLLER.rollerOut();
-				while(SONAR.getRangeInInches() > 12)
+				while(sonar.getRangeInInches() > 12)
 				{
-					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
+					DRIVE.drive(-RobotMap.AUTONOMOUS_SPEED);
 				}
 				//when a tote is in range, stop driving, retract rollers, lean the forklift forward and spin inward				
 				driveTimer.stop();
@@ -124,7 +126,7 @@ public class WinAutonomous extends CommandBase {
 					highTime += 3.0;
 				}	
 			}
-		}
+		//}
 	storedTime = autonomousTimer.get();
 	}
 	

@@ -91,7 +91,7 @@ public class Forklift extends ExpeditiousSubsystem {
 	{
 		//airInSol.set(RobotMap.FORKLIFT_SOLENOID_VALUE);
 		//airOutSol.set(!RobotMap.FORKLIFT_SOLENOID_VALUE);
-		tilter.set(DoubleSolenoid.Value.kForward);
+		tilter.set(DoubleSolenoid.Value.kReverse);
 		System.out.println("Pistons are out"); 
 
 	}

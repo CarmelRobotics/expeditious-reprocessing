@@ -64,6 +64,12 @@ public class Robot extends IterativeRobot{
     public Robot()
     {
     	driver = new DriveTrain();
+    	fork = new Forklift();
+		roller = new Rollers();
+		sonar = new MaxbotixUltrasonic(0);
+		winAutonomous = new WinAutonomous();
+		compressor = new CompressorA();
+		grabImage = new Vision();
     }
 
     /**
@@ -72,15 +78,9 @@ public class Robot extends IterativeRobot{
      */
     public void robotInit() {
 		OI oi = new OI();
-		winAutonomous = new WinAutonomous();
 		winAutonomous.initialize();
         // instantiate the command used for the autonomous period
         //autonomousCommand = new ExampleCommand();
-		compressor = new CompressorA();
-		fork = new Forklift();
-		roller = new Rollers();
-		sonar = new MaxbotixUltrasonic(0);
-		grabImage = new Vision();
 		OI.initialize();
 		driver.shiftLowGear();
     }
