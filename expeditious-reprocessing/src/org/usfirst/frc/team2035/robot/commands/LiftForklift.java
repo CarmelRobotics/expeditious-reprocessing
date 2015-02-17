@@ -1,6 +1,6 @@
 package org.usfirst.frc.team2035.robot.commands;
 
-import org.usfirst.frc.team2035.robot.*; 
+import org.usfirst.frc.team2035.robot.*;  
 import org.usfirst.frc.team2035.robot.subsystems.Forklift;
 import org.usfirst.frc.team2035.robot.subsystems.Rollers;
 import org.usfirst.frc.team2035.robot.Robot;
@@ -23,7 +23,9 @@ public class LiftForklift extends CommandBase {
 	 // Called just before this Command runs the first time
     protected void initialize() {
     	i =0;
+    	forklift.retractForklift();
     	roller.rollerOut();
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

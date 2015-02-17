@@ -88,7 +88,7 @@ public class WinAutonomous extends CommandBase {
 				driveTimer.stop();
 				drivenTime = driveTimer.get();
 				//if()
-				LIFTER.extendForklift();
+				LIFTER.retractForklift();
 				if(ROLLER.getOut())
 				{
 					ROLLER.rollerIn();
