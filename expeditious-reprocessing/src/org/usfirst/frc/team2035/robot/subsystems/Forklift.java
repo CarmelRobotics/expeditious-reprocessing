@@ -14,8 +14,7 @@ public class Forklift extends ExpeditiousSubsystem {
 
 	private final Talon rightChainMotor;
 	private final Talon leftChainMotor;
-	private DigitalInput highLimit;
-	//private DigitalInput lowLimit;
+	private DigitalInput lowLimit;
 	private Timer liftTime;
 	private boolean oneThrough = false;
 	private Solenoid airInSol;
@@ -27,8 +26,8 @@ public class Forklift extends ExpeditiousSubsystem {
 		super("Fork Lift");
 		rightChainMotor = new Talon(RobotMap.R_CHAIN_MOTOR_PWM); // make sure to make this in robot map
 		leftChainMotor = new Talon(RobotMap.L_CHAIN_MOTOR_PWM); // make sure to make this in robot map
-		highLimit = new DigitalInput(RobotMap.HIGH_LIMIT_SWITCH);
-		//lowLimit = new DigitalInput(RobotMap.LOW_LIMIT_SWITCH);
+		//highLimit = new DigitalInput(RobotMap.HIGH_LIMIT_SWITCH);
+		lowLimit = new DigitalInput(RobotMap.LOW_LIMIT_SWITCH);
 		liftTime = new Timer();
 		out = false;
 		//airInSol = new Solenoid(1, RobotMap.BACK_SOLENOID_PCM);
@@ -53,8 +52,8 @@ public class Forklift extends ExpeditiousSubsystem {
 		//if(highLimit.get())
 			//System.out.println("pressed");
 		
-			rightChainMotor.set(RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
-			leftChainMotor.set(RobotMap.FORKLIFT_MOTOR_SPEED);
+			rightChainMotor.set(-RobotMap.FORKLIFT_MOTOR_SPEED); // make sure to make this in robot map
+			leftChainMotor.set(-RobotMap.FORKLIFT_MOTOR_SPEED);
 		//if(oneThrough == false)
 		//{
 		//liftTime.start();
@@ -81,8 +80,8 @@ public class Forklift extends ExpeditiousSubsystem {
 	public void setreverseforklift() {
 		//while (lowLimit.get() == false)
 		//{
-			rightChainMotor.set(RobotMap.FORKLIFT_REVERSE_MOTOR_SPEED);// make this in robot map
-			leftChainMotor.set(RobotMap.FORKLIFT_REVERSE_MOTOR_SPEED);
+			rightChainMotor.set(-RobotMap.FORKLIFT_REVERSE_MOTOR_SPEED);// make this in robot map
+			leftChainMotor.set(-RobotMap.FORKLIFT_REVERSE_MOTOR_SPEED);
 		//}
 	}
 	
@@ -116,7 +115,7 @@ public class Forklift extends ExpeditiousSubsystem {
 	
 	public DigitalInput getLimit()
 	{
-		return highLimit;
+		return lowLimit;
 	}
 	
 }

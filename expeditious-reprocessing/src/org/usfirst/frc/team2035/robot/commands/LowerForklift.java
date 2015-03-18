@@ -21,6 +21,7 @@ public class LowerForklift extends CommandBase {
 	
 	 // Called just before this Command runs the first time
     protected void initialize() {
+    	//forklift.retractForklift();
     	roller.rollerOut();
 
     }

@@ -139,7 +139,7 @@ public class Robot extends IterativeRobot{
         driver.arcadeDrive();
         
         //Timer.delay(K_UPDATE_PERIOD);
-    	//System.out.println("Teleop Loop is running");
+    	System.out.println("LIMIT SWITCH VALUE: " + fork.getLimit().get());
         	grabImage.sendImage();
         Timer.delay(K_UPDATE_PERIOD);
         

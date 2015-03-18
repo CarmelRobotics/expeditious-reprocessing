@@ -53,8 +53,8 @@ public class RobotMap {
     public static final int PCM_ID = 1;
     public static final int PCM2_ID = 2;
     public static final int PRESSURE_SWITCH_DIG_IN = 14;
-    public static final int HIGH_LIMIT_SWITCH = 1;
-    public static final int LOW_LIMIT_SWITCH = 2;
+    public static final int HIGH_LIMIT_SWITCH = 2;
+    public static final int LOW_LIMIT_SWITCH = 1;
     
     
     /*
@@ -85,8 +85,8 @@ public class RobotMap {
     
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
-    public static final JoystickButton BUTTON_FORKLIFT_DOWN = new JoystickButton(DRIVER_JOYSTICK_R, 3);
-    public static final JoystickButton BUTTON_FORKLIFT_UP = new JoystickButton(DRIVER_JOYSTICK_R, 2);
+    public static final JoystickButton BUTTON_FORKLIFT_DOWN = new JoystickButton(DRIVER_JOYSTICK_R, 2);
+    public static final JoystickButton BUTTON_FORKLIFT_UP = new JoystickButton(DRIVER_JOYSTICK_R, 3);
     public static final JoystickButton BUTTON_FORKLIFT_BACK = new JoystickButton(DRIVER_JOYSTICK_R, 4);
     public static final JoystickButton BUTTON_FORKLIFT_FORWARD = new JoystickButton(DRIVER_JOYSTICK_R, 5);
     

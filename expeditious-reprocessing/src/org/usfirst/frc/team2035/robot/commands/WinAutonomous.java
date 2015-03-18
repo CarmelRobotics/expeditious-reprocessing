@@ -49,7 +49,8 @@ public class WinAutonomous extends CommandBase {
 		process.setTote(false);
 	}
 	
-	public void execute() {
+	public void execute() 
+	{
 		/*
 		double currentTime = autonomousTimer.get();
 		if(currentTime > 0.0 && currentTime < .5){ //Change time that is needed 
@@ -78,12 +79,13 @@ public class WinAutonomous extends CommandBase {
 			//If a tote is found
 			if(process.foundTote())
 			{
-				//drive until tote is 1 foot away with the rollers out
+				//drive until tote is 1 foot away with the rollers out, then stop driving
 				driveTimer.start();
-				while(sonar.getRangeInInches() > 12)
+				while(driveTimer.get() < 3)//sonar.getRangeInInches() > 12
 				{
-					DRIVE.drive(-RobotMap.AUTONOMOUS_SPEED);
+					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
 				}
+				DRIVE.drive(0.0);
 				//when a tote is in range, stop driving, retract rollers, lean the forklift forward and spin inward				
 				driveTimer.stop();
 				drivenTime = driveTimer.get();
@@ -98,6 +100,7 @@ public class WinAutonomous extends CommandBase {
 				{
 					ROLLER.spinIn();
 				}
+				ROLLER.motorOff();
 				//release the rollers, start to lift the tote for 2 seconds
 				if(!ROLLER.getOut())
 				{
@@ -108,6 +111,7 @@ public class WinAutonomous extends CommandBase {
 				{
 					LIFTER.setliftforklift(); //CHANGE THIS METHOD NAME!!!!!
 				}
+				LIFTER.setstopforklift();
 				//drive in reverse with the same power for the same amount of time it took to get to the tote
 				driveTimer.reset();
 				driveTimer.start();
@@ -115,19 +119,20 @@ public class WinAutonomous extends CommandBase {
 				{
 					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED * -1);
 				}
+				DRIVE.drive(0.0);
 			}
-			//if a tote is not found then, turn looking for a tote
+			//if a tote is not found then, turn looking for a tote and repeat process
 			else
 			{
-				DRIVE.rotate(.2);
+				DRIVE.rotate(10.0);
 				if(storedTime > lowTime)
 				{
 					lowTime += 3.0;
 					highTime += 3.0;
 				}	
 			}
-		//}
-	storedTime = autonomousTimer.get();
+		
+		storedTime = autonomousTimer.get();
 	}
 	
 	public boolean isFinished() {
