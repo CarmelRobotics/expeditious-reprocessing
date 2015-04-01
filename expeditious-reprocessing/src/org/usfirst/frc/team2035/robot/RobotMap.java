@@ -60,11 +60,11 @@ public class RobotMap {
     /*
      * SPEED CONSTANTS
      */
-    public static final double AUTONOMOUS_SPEED= 0.40; //Autonomous speed set to 40%
-    public static final double ROLLER_SPEED = 0.5;
-    public static final double FORKLIFT_MOTOR_SPEED = -1; //chain motor lift speed is set to lift at half speed 50%
+    public static final double AUTONOMOUS_SPEED= 0.70; //Autonomous speed set to 40%
+    public static final double ROLLER_SPEED = 0.4;
+    public static final double FORKLIFT_MOTOR_SPEED = -.8; //chain motor lift speed is set to lift at half speed 50%
     public static final double FORKLIFT_OFF_MOTOR_SPEED = 0.0; //chain motor stationary is set to 0%
-    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = 1; //chain motor reverses at half speed -50%
+    public static final double FORKLIFT_REVERSE_MOTOR_SPEED = .8; //chain motor reverses at half speed -50%
     
     
     /*
@@ -83,6 +83,19 @@ public class RobotMap {
     public static final Joystick DRIVER_JOYSTICK_R = new Joystick(JOYSTICK_R_USB_NUMBER);
     public static final Joystick DRIVER_JOYSTICK_L = new Joystick(JOYSTICK_L_USB_NUMBER);
     
+    public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_L, 6);
+    public static final JoystickButton BUTTON_FORKLIFT_FORWARD = new JoystickButton(DRIVER_JOYSTICK_L, 3);
+    public static final JoystickButton BUTTON_FORKLIFT_BACK = new JoystickButton(DRIVER_JOYSTICK_L, 2);
+    
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_IN = new JoystickButton(DRIVER_JOYSTICK_R, 1);
+    public static final JoystickButton BUTTON_FORKLIFT_DOWN = new JoystickButton(DRIVER_JOYSTICK_R, 2);
+    public static final JoystickButton BUTTON_FORKLIFT_UP = new JoystickButton(DRIVER_JOYSTICK_R, 3);
+    public static final JoystickButton BUTTON_ROLLER_IN = new JoystickButton(DRIVER_JOYSTICK_R, 4);
+    public static final JoystickButton BUTTON_ROLLER_OUT = new JoystickButton(DRIVER_JOYSTICK_R, 5);
+    public static final JoystickButton BUTTON_ROLLER_MOTOR_OUT = new JoystickButton(DRIVER_JOYSTICK_R, 6);
+    public static final JoystickButton BUTTON_ROLLER_SPIN_LEFT = new JoystickButton(DRIVER_JOYSTICK_R, 10);
+    public static final JoystickButton BUTTON_ROLLER_SPIN_RIGHT = new JoystickButton(DRIVER_JOYSTICK_R, 11);
+    /*
     //Right Joystick Buttons
     public static final JoystickButton BUTTON_SHIFT_GEAR = new JoystickButton(DRIVER_JOYSTICK_R, 1);
     public static final JoystickButton BUTTON_FORKLIFT_DOWN = new JoystickButton(DRIVER_JOYSTICK_R, 2);
@@ -97,6 +110,7 @@ public class RobotMap {
     public static final JoystickButton BUTTON_ROLLER_SPIN_LEFT = new JoystickButton(DRIVER_JOYSTICK_L, 4);
     public static final JoystickButton BUTTON_ROLLER_SPIN_RIGHT = new JoystickButton(DRIVER_JOYSTICK_L, 5);
     public static final JoystickButton BUTTON_ROLLER_MOTOR_OUT = new JoystickButton(DRIVER_JOYSTICK_L, 6);
+    */
     
     //public static final JoystickButton BUTTON_ROLLER_IN = new JoystickButton(DRIVER_JOYSTICK, 7);
     //public static final JoystickButton BUTTON_ROLLER_OUT = new JoystickButton(DRIVER_JOYSTICK, 6);
@@ -114,7 +128,7 @@ public class RobotMap {
     /*
      * Camera
      */   
-    public static final String CAM_ID = "cam1";
+    public static final String CAM_ID = "cam0";
     public static int camCounter = 0;
     public static final int IMAGE_QUALITY = 100;
     public static final int SAVE_IMAGE_QUALITY = 100;

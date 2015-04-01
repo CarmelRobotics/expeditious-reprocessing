@@ -17,16 +17,15 @@ public class WinAutonomous extends CommandBase {
 	private final Rollers ROLLER;
 	private MaxbotixUltrasonic sonar;
 	private Timer autonomousTimer;
-	private Timer liftTimer;
+	private Timer runningTimer;
 	private Timer driveTimer;
-	private Timer rollerTimer;
 	private double drivenTime;
 	private double storedTime;
 	private Vision2 vision;
 	private ImageProcess process;
 	private double lowTime = .0;
 	private double highTime = 1.0;
-	private int forkCounter = 0;
+	//private int forkCounter = 0;
 	
 	public WinAutonomous() {
 		super("drive");
@@ -41,9 +40,8 @@ public class WinAutonomous extends CommandBase {
 	
 	public void initialize() {
 		autonomousTimer = new Timer();
-		liftTimer = new Timer();
 		driveTimer = new Timer();
-		rollerTimer = new Timer();
+		runningTimer = new Timer();
 		vision.visionInit();
 		process.initProcessImage();
 		process.setTote(false);
@@ -79,45 +77,38 @@ public class WinAutonomous extends CommandBase {
 			//If a tote is found
 			if(process.foundTote())
 			{
-				//drive until tote is 1 foot away with the rollers out, then stop driving
+				//drive for 3 seconds, ultrasonic does not work with open rollers
 				driveTimer.start();
-				while(driveTimer.get() < 3)//sonar.getRangeInInches() > 12
+				runningTimer.start();
+				LIFTER.retractForklift();
+				while(driveTimer.get() < 2.0)//sonar.getRangeInInches() > 12
 				{
-					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
+					DRIVE.drive(-RobotMap.AUTONOMOUS_SPEED);
 				}
 				DRIVE.drive(0.0);
 				//when a tote is in range, stop driving, retract rollers, lean the forklift forward and spin inward				
 				driveTimer.stop();
 				drivenTime = driveTimer.get();
-				//if()
-				LIFTER.retractForklift();
-				if(ROLLER.getOut())
+				//if the running time is between 3 and 4 seconds, grab a tote
+				while(runningTimer.get() > 2.0 && runningTimer.get() < 3.0)
 				{
 					ROLLER.rollerIn();
-				}
-				rollerTimer.start();
-				while(rollerTimer.get() < .3)
-				{
 					ROLLER.spinIn();
+					LIFTER.setreverseforklift();
 				}
 				ROLLER.motorOff();
-				//release the rollers, start to lift the tote for 2 seconds
-				if(!ROLLER.getOut())
-				{
-					ROLLER.rollerOut();
-				}
-				liftTimer.start();
-				if(liftTimer.get() <= 2)
-				{
-					LIFTER.setliftforklift(); //CHANGE THIS METHOD NAME!!!!!
-				}
+				//lift the tote for 2.5 seconds
+				while(runningTimer.get() > 3.0 && runningTimer.get() < 4.5)
+					LIFTER.setreverseforklift();
+				//release the rollers, stop lifting
+				ROLLER.rollerOut();
 				LIFTER.setstopforklift();
-				//drive in reverse with the same power for the same amount of time it took to get to the tote
+				//drive in reverse with the same power for a little longer than it was to grab a tote 
 				driveTimer.reset();
 				driveTimer.start();
-				while(driveTimer.get() < drivenTime)
+				while(driveTimer.get() < drivenTime + 2.0)
 				{
-					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED * -1);
+					DRIVE.drive(RobotMap.AUTONOMOUS_SPEED);
 				}
 				DRIVE.drive(0.0);
 			}
@@ -144,10 +135,10 @@ public class WinAutonomous extends CommandBase {
 	
 	public void interrupted() 
 	{
-
+		DRIVE.drive(0.0);
 	}
 	public void end()
 	{
-		DRIVE.drive(0);
+		DRIVE.drive(0.0);
 	}	
 }

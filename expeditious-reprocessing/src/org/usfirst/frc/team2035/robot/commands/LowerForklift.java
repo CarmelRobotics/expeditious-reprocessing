@@ -9,20 +9,20 @@ import org.usfirst.frc.team2035.robot.Robot;
 public class LowerForklift extends CommandBase {
 	
 	private final Forklift forklift;
-	private final Rollers roller;
+	//private final Rollers roller;
 	
 	public LowerForklift(){
 		super("lowerforklift");
 		forklift = Robot.getForklift();
-		roller = Robot.getRollers();
-		requires(roller);
+		//roller = Robot.getRollers();
+		//requires(roller);
 		requires(forklift);
 	}
 	
 	 // Called just before this Command runs the first time
     protected void initialize() {
     	//forklift.retractForklift();
-    	roller.rollerOut();
+    	//roller.rollerOut();
 
     }
 

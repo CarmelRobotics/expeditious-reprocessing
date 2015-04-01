@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 public class LiftForklift extends CommandBase {
 	private final Forklift forklift;
-	private final Rollers roller;
+	//private final Rollers roller;
 	private boolean limSwitch;
 	int i = 0;
 	private Timer time;
@@ -17,9 +17,8 @@ public class LiftForklift extends CommandBase {
 	public LiftForklift(){
 		super("liftforklift");
 		forklift = Robot.getForklift();
-		roller = Robot.getRollers();
-		limSwitch = false;	
-		requires(roller);
+		//roller = Robot.getRollers();
+		//requires(roller);
 		requires(forklift);
 		time = new Timer();
 	}
@@ -27,17 +26,24 @@ public class LiftForklift extends CommandBase {
 	 // Called just before this Command runs the first time
     protected void initialize() {
     	//i = 0;
-    	forklift.retractForklift();
+    	//forklift.retractForklift();
     	//roller.rollerOut();
+    	forklift.setliftforklift();
+        time.delay(.3);
+        limSwitch = false;
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//forklift.setOneThrough(false);
-    	//System.out.println(forklift.getLimit().get());
+    	//System.out.println("Forklift: " + forklift.getLimit().get());
     	//i++;
-        forklift.setliftforklift();
+    	
+    	if(forklift.getLimit().get() == true)
+    	{
+    		limSwitch = true;
+    	}
         
     }
     
@@ -49,7 +55,9 @@ public class LiftForklift extends CommandBase {
     	//{
     	//return false;
     	//}
-        if(forklift.getLimit().get() == true)
+    	//i++;
+    	//System.out.println(i);
+        if(forklift.getLimit().get() == true || limSwitch == true)
     	{
     		return true;
     	}
@@ -81,7 +89,7 @@ public class LiftForklift extends CommandBase {
     // Called once after isFinished returns true
     protected void end() {
 
-    	time.delay(.25);
+    	//time.delay(.05);
         forklift.setstopforklift();
     }    
  // Called when another command which requires one or more of the same
